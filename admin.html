@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sri Ilakkiya (ஸ்ரீ இலக்கியா) — Admin Management Portal</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🪔%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@600;700;800&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- 1. LOGIN SCREEN -->
+  <section id="loginScreen" class="login-wrapper">
+    <div class="login-card">
+      <div class="login-badge">இ</div>
+      <h1 class="login-title">ஸ்ரீ இலக்கியா · Sri Ilakkiya</h1>
+      <p class="login-subtitle">Showroom Management &amp; Pricing Portal</p>
+      <form id="loginForm" class="login-form">
+        <div class="input-group">
+          <label for="adminPass">Enter Security Passcode</label>
+          <input type="password" id="adminPass" placeholder="••••••••" required autocomplete="current-password" autofocus>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem;margin:0.75rem 0 1rem;font-size:0.85rem;color:#E7DFD0;text-align:left;">
+          <input type="checkbox" id="rememberPass" style="width:16px;height:16px;cursor:pointer;">
+          <label for="rememberPass" style="cursor:pointer;margin:0;">Remember login on this browser</label>
+        </div>
+        <button type="submit" class="btn-login">Login to Portal</button>
+        <p class="hint-text">Default Passcode: <strong>1234</strong></p>
+      </form>
+      <a href="index.html" class="back-link">← Return to Live Website</a>
+    </div>
+  </section>
+
+  <!-- 2. ADMIN PORTAL CONTAINER -->
+  <div id="adminApp" class="admin-layout" style="display: none;">
+
+    <!-- Topbar Header -->
+    <header class="admin-topbar">
+      <div class="topbar-brand">
+        <div class="admin-brand-logo">
+          <div class="brand-circle">இ</div>
+          <div class="brand-title-box">
+            <h2>ஸ்ரீ இலக்கியா · Sri Ilakkiya</h2>
+            <span>Admin Control Panel · Aranthangi</span>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a href="index.html" target="_blank" class="btn-view-site">
+          <span>🌐 View Live Store</span>
+        </a>
+        <button type="button" id="logoutBtn" class="btn-logout">Logout</button>
+      </div>
+    </header>
+
+    <!-- Admin Navigation Tabs -->
+    <nav class="admin-nav-tabs">
+      <div class="nav-tabs-wrap">
+        <button type="button" class="tab-btn active" data-tab="pricingTab">
+          <span>💰</span>
+          <b>Price &amp; Amount Manager</b>
+        </button>
+        <button type="button" class="tab-btn" data-tab="addProductTab">
+          <span>📷</span>
+          <b>Add Product (Camera / Upload)</b>
+        </button>
+        <button type="button" class="tab-btn" data-tab="customListTab">
+          <span>📦</span>
+          <b>Custom Products (<span id="customProdBadge">0</span>)</b>
+        </button>
+        <button type="button" class="tab-btn" data-tab="offersTab">
+          <span>🎉</span>
+          <b>Showroom Offers</b>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+
+      <!-- ================= TAB 1: PRICING & AMOUNT MANAGER ================= -->
+      <section id="pricingTab" class="tab-pane active">
+        <div class="pane-header">
+          <div>
+            <span class="pane-tag">Catalog Pricing</span>
+            <h2 class="pane-title">Manage Product Prices &amp; Amounts</h2>
+            <p class="pane-desc">Enter the showroom regular price and special offer price for any item. Prices update instantly on the customer-facing website and in WhatsApp enquiry messages!</p>
+          </div>
+          <div class="live-sync-indicator">
+            <span class="dot"></span>
+            <span>Live Sync Active</span>
+          </div>
+        </div>
+
+        <!-- Metrics Overview Strip -->
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-title">Total Catalog Products</span>
+            <p class="stat-value" id="statTotalProds">0</p>
+            <span class="stat-trend">Across 3 Departments</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-title">Prices Configured</span>
+            <p class="stat-value text-green" id="statPricedProds">0</p>
+            <span class="stat-trend text-green">● Live with Real Price</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-title">Active Special Offers</span>
+            <p class="stat-value text-gold" id="statOfferProds">0</p>
+            <span class="stat-trend">Discount Pricing Applied</span>
+          </div>
+        </div>
+
+        <!-- Toolbar & Filter Options -->
+        <div class="pricing-toolbar">
+          <div class="search-wrap">
+            <input type="search" id="priceSearchInput" placeholder="🔍 Search product name (e.g. Cooker, Cot, Sofa, TV, Kadai)...">
+          </div>
+          <div class="dept-filters" id="priceDeptFilters">
+            <button type="button" class="filter-pill active" data-filter="all">All Items</button>
+            <button type="button" class="filter-pill" data-filter="vessels">Vessels &amp; Kitchenware</button>
+            <button type="button" class="filter-pill" data-filter="furniture">Solid Teak Furniture</button>
+            <button type="button" class="filter-pill" data-filter="appliances">Home Appliances</button>
+          </div>
+          <div class="action-buttons-wrap">
+            <button type="button" class="btn-action btn-sample-fill" id="btnFillSamplePrices" title="Automatically populate realistic market prices for all items">
+              ⚡ Auto-Fill Sample Prices
+            </button>
+            <button type="button" class="btn-action btn-save-all" id="btnSaveAllPrices">
+              💾 Save All Price Changes
+            </button>
+            <button type="button" class="btn-action btn-reset" id="btnResetPrices">
+              🔄 Clear Prices
+            </button>
+          </div>
+        </div>
+
+        <!-- Price Table Container -->
+        <div class="table-container">
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th style="width: 70px;">Image</th>
+                <th>Product Details</th>
+                <th style="width: 140px;">Department</th>
+                <th style="width: 150px;">Regular Price (₹)</th>
+                <th style="width: 150px;">Offer Price (₹)</th>
+                <th style="width: 100px; text-align: center;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="pricingTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================= TAB 2: ADD NEW PRODUCT (CAMERA / UPLOAD) ================= -->
+      <section id="addProductTab" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <span class="pane-tag">Inventory Expansion</span>
+            <h2 class="pane-title">Add New Product to Showroom</h2>
+            <p class="pane-desc">Capture a live photo using your phone camera or upload from device. New products immediately show up in the store catalogue!</p>
+          </div>
+        </div>
+
+        <form id="newProductForm" class="product-form-grid">
+          <!-- Left Column: Product Information -->
+          <div class="form-card">
+            <h3 class="form-section-title">1. Product Information</h3>
+
+            <div class="form-group">
+              <label for="newProdName">Product Title / Name *</label>
+              <input type="text" id="newProdName" placeholder="e.g. Prestige Deluxe Alpha Tri-Ply Stainless Steel Cooker 5L" required>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="newProdDept">Department *</label>
+                <select id="newProdDept" required>
+                  <option value="vessels">Vessels &amp; Kitchenware (பாத்திரங்கள்)</option>
+                  <option value="furniture">Solid Teak Furniture (மரச்சாமான்கள்)</option>
+                  <option value="appliances">Home Appliances &amp; Electronics (மின்சாதனங்கள்)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="newProdCategory">Category *</label>
+                <input type="text" id="newProdCategory" list="categoryPresets" placeholder="e.g. Cookware, Bedroom, Pooja, etc." required>
+                <datalist id="categoryPresets">
+                  <option value="Cookware">
+                  <option value="Stainless steel">
+                  <option value="Traditional cookware">
+                  <option value="Dining &amp; serving">
+                  <option value="Pooja &amp; festival">
+                  <option value="Bedroom">
+                  <option value="Living &amp; dining">
+                  <option value="Kitchen appliances">
+                  <option value="Home appliances">
+                  <option value="Cooling &amp; air">
+                  <option value="Electronics">
+                  <option value="Wedding &amp; gifts">
+                </datalist>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="newProdPrice">Regular Price (₹)</label>
+                <input type="number" id="newProdPrice" placeholder="e.g. 2499" min="0">
+              </div>
+
+              <div class="form-group">
+                <label for="newProdOffer">Special Offer Price (₹)</label>
+                <input type="number" id="newProdOffer" placeholder="e.g. 1999" min="0">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="newProdBrand">Brand Name</label>
+                <input type="text" id="newProdBrand" list="brandListPresets" placeholder="e.g. Prestige, Philips, LG, Sri Ilakkiya Teak">
+                <datalist id="brandListPresets">
+                  <option value="Prestige">
+                  <option value="Philips">
+                  <option value="Pigeon">
+                  <option value="Usha">
+                  <option value="Preethi">
+                  <option value="Butterfly">
+                  <option value="Hawkins">
+                  <option value="LG">
+                  <option value="Samsung">
+                  <option value="Whirlpool">
+                  <option value="Sri Ilakkiya Teak">
+                </datalist>
+              </div>
+
+              <div class="form-group">
+                <label for="newProdStatus">Stock Availability</label>
+                <select id="newProdStatus">
+                  <option value="Showroom Stock Available">Showroom Stock Available</option>
+                  <option value="In Stock (Ready for Delivery)">In Stock (Ready for Delivery)</option>
+                  <option value="Limited Festive Stock">Limited Festive Stock</option>
+                  <option value="Made to Order (Teak Wood)">Made to Order (Teak Wood)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="newProdDesc">Description &amp; Specifications</label>
+              <textarea id="newProdDesc" rows="3" placeholder="Provide size, material, warranty details and special features..."></textarea>
+            </div>
+
+            <div class="form-group-checkbox">
+              <input type="checkbox" id="newProdFeatured" checked>
+              <label for="newProdFeatured">Feature this item on the Homepage "Popular in Showroom" showcase</label>
+            </div>
+          </div>
+
+          <!-- Right Column: Camera & Image Capture Section -->
+          <div class="form-card">
+            <h3 class="form-section-title">2. Product Image &amp; Camera Upload</h3>
+            <p class="form-subtext">Take an instant photo with your phone camera or upload an existing picture from your device.</p>
+
+            <!-- Dual Upload Buttons -->
+            <div class="upload-actions-grid">
+              <!-- Camera Capture Input -->
+              <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display:none;">
+              <button type="button" class="btn-camera" id="btnTriggerCamera">
+                <span class="icon">📷</span>
+                <div class="btn-text">
+                  <strong>Take Photo with Camera</strong>
+                  <small>Opens mobile rear camera</small>
+                </div>
+              </button>
+
+              <!-- File Upload Input -->
+              <input type="file" id="fileInput" accept="image/*" style="display:none;">
+              <button type="button" class="btn-file-upload" id="btnTriggerFile">
+                <span class="icon">📁</span>
+                <div class="btn-text">
+                  <strong>Choose from Gallery</strong>
+                  <small>Upload PNG or JPEG file</small>
+                </div>
+              </button>
+            </div>
+
+            <!-- Quick Preset Selector -->
+            <div class="preset-selector-box">
+              <label>Or select from Showroom Presets:</label>
+              <div class="preset-thumbnails" id="presetThumbnails">
+                <button type="button" class="preset-btn" data-src="assets/cooker.jpg">🍲 Cooker</button>
+                <button type="button" class="preset-btn" data-src="assets/dosa_tawa.jpg">🍳 Dosa Tawa</button>
+                <button type="button" class="preset-btn" data-src="assets/idli_pot.jpg">🥘 Idli Pot</button>
+                <button type="button" class="preset-btn" data-src="assets/mixer_grinder.jpg">⚡ Mixie</button>
+                <button type="button" class="preset-btn" data-src="assets/teak_cot.jpg">🛏️ Teak Cot</button>
+                <button type="button" class="preset-btn" data-src="assets/kuthu_vilakku.jpg">🪔 Brass Lamp</button>
+                <button type="button" class="preset-btn" data-src="assets/banner_seervarisai.jpg">🎁 Seervarisai</button>
+              </div>
+            </div>
+
+            <!-- Image Preview Box -->
+            <div class="image-preview-wrapper" id="imagePreviewWrapper">
+              <div class="empty-preview" id="emptyPreviewNotice">
+                <span style="font-size: 2.5rem;">🖼️</span>
+                <p>No image captured yet.<br>Click "Take Photo" or "Choose from Gallery".</p>
+              </div>
+              <div class="active-preview" id="activePreviewBox" style="display: none;">
+                <img id="previewImgElement" src="" alt="Captured product image">
+                <div class="preview-overlay">
+                  <span class="preview-badge" id="previewSizeBadge">Compressed JPEG</span>
+                  <button type="button" class="btn-remove-photo" id="btnRemovePhoto">✕ Retake Photo</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-submit-product" id="btnSubmitProduct">
+              <span>➕ Add Product to Showroom Store</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ================= TAB 3: CUSTOM ADDED PRODUCTS ================= -->
+      <section id="customListTab" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <span class="pane-tag">Custom Inventory</span>
+            <h2 class="pane-title">Owner Added Products</h2>
+            <p class="pane-desc">Manage, edit prices or delete items added directly through this admin panel.</p>
+          </div>
+        </div>
+
+        <div id="customProductsList" class="custom-products-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 4: OFFERS ================= -->
+      <section id="offersTab" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <span class="pane-tag">Promotions</span>
+            <h2 class="pane-title">Showroom Festive Offers</h2>
+            <p class="pane-desc">Create special festive banners and discounts to feature on the live website.</p>
+          </div>
+        </div>
+
+        <form id="offerForm" class="content-card" style="margin-bottom: 2rem;">
+          <h3 class="form-section-title">Create / Update Offer</h3>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="offTitle">Offer Headline *</label>
+              <input type="text" id="offTitle" placeholder="e.g. Wedding Seervarisai Special Mega Discount" required>
+            </div>
+            <div class="form-group">
+              <label for="offDiscount">Discount Badge *</label>
+              <input type="text" id="offDiscount" placeholder="e.g. Up to 35% Off + Free Gifts" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="offDesc">Offer Details</label>
+            <textarea id="offDesc" rows="2" placeholder="Describe the offer package details..."></textarea>
+          </div>
+          <button type="submit" class="btn-action btn-save-all" style="margin-top: 0.5rem;">
+            <span>📢 Publish Live Offer</span>
+          </button>
+        </form>
+
+        <div id="offersContainer" class="offers-list">
+          <!-- Live offers list -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="adminToast" class="admin-toast"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

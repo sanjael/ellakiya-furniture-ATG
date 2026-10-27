@@ -1,0 +1,157 @@
+{
+  "prices": {
+    "vessels-cookware-pressure-cookers": {
+      "price": 2400,
+      "offer": 1850
+    },
+    "vessels-cookware-dosa-tawas": {
+      "price": 899,
+      "offer": 749
+    },
+    "vessels-cookware-non-stick-tawas": {
+      "price": 799,
+      "offer": 649
+    },
+    "vessels-stainless-steel-idli-pots": {
+      "price": 1250,
+      "offer": 999
+    },
+    "vessels-cookware-kadai": {
+      "price": 750,
+      "offer": 599
+    },
+    "vessels-cookware-biryani-pots": {
+      "price": 1850,
+      "offer": 1599
+    },
+    "vessels-traditional-cookware-dosa-stones": {
+      "price": 1500,
+      "offer": 100
+    },
+    "vessels-traditional-cookware-iron-kadai": {
+      "price": 850,
+      "offer": 699
+    },
+    "vessels-traditional-cookware-clay-pots": {
+      "price": 350,
+      "offer": 299
+    },
+    "vessels-dining-and-serving-dinner-sets": {
+      "price": 4200,
+      "offer": 3499
+    },
+    "vessels-dining-and-serving-meal-plates": {
+      "price": 380,
+      "offer": 320
+    },
+    "vessels-pooja-and-festival-kuthu-vilakku": {
+      "price": 3500,
+      "offer": 2999
+    },
+    "vessels-pooja-and-festival-brass-lamps": {
+      "price": 1800,
+      "offer": 1499
+    },
+    "vessels-wedding-and-gifts-seervarisai-vessel-sets": {
+      "price": 48000,
+      "offer": 39999
+    },
+    "furniture-bedroom-cots": {
+      "price": 28500,
+      "offer": 24999
+    },
+    "furniture-living-and-dining-sofas": {
+      "price": 32000,
+      "offer": 27500
+    },
+    "furniture-living-and-dining-dining-tables": {
+      "price": 24000,
+      "offer": 19999
+    },
+    "furniture-storage-and-office-steel-almirahs": {
+      "price": 18500,
+      "offer": 15999
+    },
+    "furniture-storage-and-office-steel-almirahs-iron-bureau": {
+      "price": 18500,
+      "offer": 15999
+    },
+    "furniture-bedroom-wardrobes": {
+      "price": 22000,
+      "offer": 18500
+    },
+    "furniture-bedroom-wardrobes-wooden-bureau": {
+      "price": 22000,
+      "offer": 18500
+    },
+    "furniture-bedroom-mattresses": {
+      "price": 9500,
+      "offer": 7999
+    },
+    "appliances-kitchen-appliances-mixer-grinders": {
+      "price": 3850,
+      "offer": 3299
+    },
+    "appliances-kitchen-appliances-wet-grinders": {
+      "price": 4999,
+      "offer": 4250
+    },
+    "appliances-kitchen-appliances-gas-stoves": {
+      "price": 4200,
+      "offer": 3499
+    },
+    "appliances-kitchen-appliances-induction-stoves": {
+      "price": 2800,
+      "offer": 2399
+    },
+    "appliances-cooling-and-air-ceiling-fans": {
+      "price": 2100,
+      "offer": 1750
+    },
+    "appliances-cooling-and-air-table-fans": {
+      "price": 1850,
+      "offer": 1550
+    },
+    "appliances-home-appliances-refrigerators": {
+      "price": 21500,
+      "offer": 18990
+    },
+    "appliances-home-appliances-washing-machines": {
+      "price": 24990,
+      "offer": 21499
+    },
+    "appliances-electronics-televisions": {
+      "price": 26990,
+      "offer": 22499
+    },
+    "appliances-home-appliances-water-heaters": {
+      "price": 6800,
+      "offer": 5699
+    },
+    "vessels-stainless-steel-plates": {
+      "price": 1000,
+      "offer": 350
+    },
+    "vessels-stainless-steel-tumblers": {
+      "price": 70,
+      "offer": 50
+    },
+    "vessels-stainless-steel-pots": {
+      "price": 1000,
+      "offer": 750
+    }
+  },
+  "customProducts": [],
+  "offers": [
+    {
+      "id": "off-festive-default",
+      "title": "Grand Festive Showroom Offer",
+      "discount": "Special Showroom Festive Discount",
+      "desc": "Special showroom discount on complete kitchenware and wedding seervarisai vessel sets. Visit our Aranthangi showroom today!",
+      "text": "Special showroom discount on complete kitchenware and wedding seervarisai vessel sets. Visit our Aranthangi showroom today!",
+      "start": "2026-01-01",
+      "end": "2026-12-31",
+      "published": true
+    }
+  ]
+}
