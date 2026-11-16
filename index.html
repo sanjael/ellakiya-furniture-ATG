@@ -15,7 +15,10 @@ window.addEventListener('error',function(e){var m=(e&&e.message)?e.message:'';if
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🪔%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@500;700;800&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap">
+<link rel="preload" as="image" href="assets/showroom_banner.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/logo_header.png" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@500;700;800&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@500;700;800&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"></noscript>
 <style>
 :root{--g:#00843D;--g-dark:#00602B;--g-gloss:#035422;--g-light:#E8F7EE;--y:#FFD200;--y-warm:#F59E0B;--y-light:#FFFBEA;--m:#C8102E;--m-dark:#9B111E;--c:#F4F9F5;--b:#0E2917;--w:#fff;--mu:#476352;--ln:#CFE4D7;--blue:#0284C7;--safe:env(safe-area-inset-bottom,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]){color-scheme:light}}
@@ -38,10 +41,11 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.2}
 .b-o{border:2px solid var(--g);color:var(--g);background:#fff}
 .b-o:hover{background:var(--g-light)}
 header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#007234 0%,#009645 50%,#007234 100%);border-bottom:4px solid var(--y);color:#fff;box-shadow:0 4px 16px rgba(0,0,0,0.12)}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .hin{display:flex;align-items:center;gap:1rem;height:70px}
-.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;margin-right:auto}
-.logo i{font-style:normal;width:42px;height:42px;background:var(--y);color:var(--m);border:2px solid var(--y);border-radius:8px;display:grid;place-items:center;font:900 1.55rem 'Mukta Malar';box-shadow:0 2px 6px rgba(0,0,0,0.2)}
-.logo b{display:block;font:800 1.35rem/1.1 'Mukta Malar';color:var(--y);text-shadow:0 1px 2px rgba(0,0,0,0.3)}.logo small{font-size:.68rem;letter-spacing:.06em;color:#E8F7EE}
+.logo{display:flex;align-items:center;text-decoration:none;margin-right:auto}
+.logo-3d-img{height:46px;width:auto;max-width:210px;object-fit:contain;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.28));transition:transform .2s ease}
+.logo:hover .logo-3d-img{transform:scale(1.03)}
 nav{display:flex;gap:1.3rem;align-items:center}nav a,nav button{font-weight:700;font-size:.92rem;text-decoration:none;padding:.5rem 0}
 nav a:hover,nav button:hover{color:var(--y)}
 .dd{position:relative}.mega{display:none;position:absolute;top:100%;left:-120px;width:620px;background:#fff;color:var(--b);border-radius:8px;box-shadow:0 18px 40px #0004;padding:1rem;grid-template-columns:1fr 1fr;gap:.3rem}
@@ -53,9 +57,7 @@ nav a:hover,nav button:hover{color:var(--y)}
 @media(max-width:1024px){
   header{height:60px}
   .hin{height:60px}
-  .logo i{width:36px;height:36px;font-size:1.3rem}
-  .logo b{font-size:1.15rem}
-  .logo small{font-size:0.58rem}
+  .logo-3d-img{height:38px;max-width:160px}
   nav,.hact .hide-s{display:none}
   .burger{display:flex;align-items:center;justify-content:center}
 }
@@ -247,7 +249,9 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
 </head>
 <body>
 <header><div class="wrap hin">
- <a class="logo" href="#home" aria-label="Sri Ilakkiya home"><i class="ta">இ</i><span><b class="ta">ஸ்ரீ இலக்கியா</b><small>SRI ILAKKIYA · ARANTHANGI</small></span></a>
+ <a class="logo" href="#home" aria-label="ஸ்ரீ இலக்கியா மெகா ஷோரூம், அறந்தாங்கி">
+  <img src="assets/logo_header.png" alt="ஸ்ரீ இலக்கியா - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ், அறந்தாங்கி" class="logo-3d-img" width="180" height="46" fetchpriority="high">
+ </a>
  <nav aria-label="Main">
   <a href="#home">Home</a>
   <div class="dd" id="dd"><button aria-expanded="false" aria-controls="mega" id="ddb">Departments ▾</button><div class="mega" id="mega" role="menu"></div></div>
@@ -257,16 +261,17 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
 </div><div class="mnav" id="mnav"></div></header>
 
 <main id="home">
+<h1 class="visually-hidden">ஸ்ரீ இலக்கியா (Sri Ilakkiya) – பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ் மெகா ஷோரூம், அறந்தாங்கி</h1>
 <!-- Official Sri Ilakkiya Showroom Signboard Banner (Auto-Rotating 2 Images) -->
 <section class="showroom-signboard" aria-label="Showroom Signboard Banner">
   <div class="wrap">
     <div class="banner-frame" id="bannerSlider">
       <div class="banner-carousel">
         <div class="banner-slide active" role="group" aria-label="Showroom Banner 1">
-          <img src="assets/showroom_banner.jpg" alt="ஸ்ரீ இலக்கியா மெகா ஷோரூம் - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ், அறந்தாங்கி" class="banner-img" fetchpriority="high">
+          <img src="assets/showroom_banner.jpg" alt="ஸ்ரீ இலக்கியா மெகா ஷோரூம் - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ், அறந்தாங்கி" class="banner-img" width="1024" height="353" fetchpriority="high">
         </div>
         <div class="banner-slide" role="group" aria-label="Showroom Banner 2">
-          <img src="assets/showroom_title_banner_padded.jpg" alt="ஸ்ரீ இலக்கியா - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ்" class="banner-img" loading="eager">
+          <img src="assets/showroom_title_banner_padded.jpg" alt="ஸ்ரீ இலக்கியா - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ்" class="banner-img" width="1024" height="353" loading="lazy">
         </div>
       </div>
       <button class="banner-arrow prev" id="bannerPrev" aria-label="Previous banner">‹</button>
@@ -345,7 +350,7 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
 <footer><div class="wrap"><div class="cols">
  <div><h3 class="ta">ஸ்ரீ இலக்கியா · Sri Ilakkiya</h3><p id="faddr"></p></div>
  <div><h3>Departments</h3><div id="fdept"></div></div>
- <div><h3>Contact</h3><a data-tel href="#"></a><a data-wa href="#">WhatsApp</a><button id="pv">Privacy policy</button></div></div>
+ <div><h3>Contact</h3><a data-tel href="#" aria-label="Call Sri Ilakkiya">+91 98943 59722</a><a data-wa href="#" aria-label="WhatsApp Sri Ilakkiya">WhatsApp</a><button id="pv" aria-label="Read Privacy Policy">Privacy policy</button></div></div>
  <p style="margin-top:1.5rem;font-size:.8rem;opacity:.8">© <span id="yr"></span> Sri Ilakkiya · <a href="admin.html" style="opacity:0.3;color:inherit;text-decoration:none;" title="Showroom Portal">🔒</a></p></div></footer>
 
 <a class="fab" data-wa href="#" aria-label="Chat on WhatsApp">✆</a>
@@ -603,7 +608,7 @@ function card(p){
   const customBadge = p.isCustom ? `<span style="position:absolute;top:8px;right:8px;background:#006B2D;color:#fff;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,0.25);z-index:2">NEW</span>` : '';
   return `<article class="card">
     <button type="button" class="thumb" data-open="${p.id}" aria-label="View details: ${esc(p.name)}">
-      <img src="${imgUrl}" alt="${esc(p.name)}" loading="eager" decoding="async" width="300" height="225" onerror="this.onerror=null;this.src='${fallbackUrl}'" class="card-img">
+      <img src="${imgUrl}" alt="${esc(p.name)}" loading="lazy" decoding="async" width="300" height="225" onerror="this.onerror=null;this.src='${fallbackUrl}'" class="card-img">
       <span class="card-cat-badge" style="background:${d.color}">${esc(p.category)}</span>
       ${customBadge}
     </button>
