@@ -210,16 +210,33 @@ footer a,footer button{display:block;padding:.2rem 0;text-decoration:none;text-a
 dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:0;color:var(--b)}dialog::backdrop{background:#000a}
 .dh{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.2rem;background:var(--g);color:var(--y)}.dh button{font-size:1.4rem;width:44px;height:44px;color:#fff}
 .db{padding:1.2rem;max-height:70vh;overflow:auto}.db h3{margin:1rem 0 .3rem}
-/* Authentic Tamil Showroom Signboard Banner */
+/* Authentic Tamil Showroom Signboard Banner with Automatic 2-Image Slider */
 .showroom-signboard{padding:1.2rem 0 0.8rem;background:linear-gradient(180deg,#E8F7EE 0%,var(--c) 100%)}
-.banner-frame{position:relative;border-radius:16px;padding:5px;background:linear-gradient(135deg,#FFE875 0%,#FFD200 35%,#F59E0B 70%,#FFE45E 100%);box-shadow:0 14px 40px rgba(0,132,61,0.18),0 4px 14px rgba(0,0,0,0.08);overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
-.banner-frame:hover{transform:translateY(-2px);box-shadow:0 18px 46px rgba(0,132,61,0.22),0 6px 18px rgba(0,0,0,0.1)}
-.banner-img{width:100%;height:auto;display:block;border-radius:12px;object-fit:cover}
+.banner-frame{position:relative;border-radius:16px;padding:5px;background:linear-gradient(135deg,#FFE875 0%,#FFD200 35%,#F59E0B 70%,#FFE45E 100%);box-shadow:0 14px 40px rgba(0,132,61,0.18),0 4px 14px rgba(0,0,0,0.08);overflow:hidden;max-width:1120px;margin:0 auto;user-select:none;-webkit-user-select:none}
+.banner-carousel{position:relative;width:100%;aspect-ratio:1024/353;overflow:hidden;border-radius:12px;background:#fff}
+.banner-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;transition:opacity .7s ease-in-out,transform .7s ease-in-out;transform:scale(1.02);display:flex;align-items:center;justify-content:center}
+.banner-slide.active{opacity:1;visibility:visible;transform:scale(1)}
+.banner-img{width:100%;height:100%;display:block;border-radius:12px;object-fit:cover}
+.banner-arrow{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.45);border:1.5px solid rgba(255,255,255,0.7);color:#fff;font-size:1.4rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:all .2s ease;backdrop-filter:blur(4px);padding:0;line-height:1}
+.banner-arrow:hover{background:rgba(0,132,61,0.9);border-color:#FFD200;color:#FFD200;transform:translateY(-50%) scale(1.08)}
+.banner-arrow.prev{left:12px}
+.banner-arrow.next{right:12px}
+.banner-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;background:rgba(0,0,0,0.45);padding:4px 10px;border-radius:20px;backdrop-filter:blur(4px)}
+.b-dot{width:20px;height:6px;border-radius:3px;background:rgba(255,255,255,0.5);border:none;cursor:pointer;transition:all .3s ease;padding:0}
+.b-dot.active{width:32px;background:#FFD200;box-shadow:0 0 8px rgba(255,210,0,0.8)}
+
 @media(max-width:640px){
   .showroom-signboard{padding:0.5rem 0 0.35rem}
   .showroom-signboard .wrap{padding:0 0.55rem}
   .banner-frame{border-radius:10px;padding:3px;box-shadow:0 4px 14px rgba(0,100,45,0.12)}
+  .banner-carousel{border-radius:8px}
   .banner-img{border-radius:8px}
+  .banner-arrow{width:28px;height:28px;font-size:1.1rem}
+  .banner-arrow.prev{left:6px}
+  .banner-arrow.next{right:6px}
+  .banner-dots{bottom:6px;padding:3px 8px;gap:6px}
+  .b-dot{width:16px;height:5px}
+  .b-dot.active{width:24px}
   section.s{padding:1.8rem 0}
   .s h2{font-size:1.45rem;margin-bottom:0.25rem}
   .sub{font-size:0.84rem;margin-bottom:1rem}
@@ -240,11 +257,24 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
 </div><div class="mnav" id="mnav"></div></header>
 
 <main id="home">
-<!-- Official Sri Ilakkiya Showroom Signboard Banner -->
+<!-- Official Sri Ilakkiya Showroom Signboard Banner (Auto-Rotating 2 Images) -->
 <section class="showroom-signboard" aria-label="Showroom Signboard Banner">
   <div class="wrap">
-    <div class="banner-frame">
-      <img src="assets/showroom_banner.jpg" alt="ஸ்ரீ இலக்கியா - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ், அறந்தாங்கி" class="banner-img" fetchpriority="high" loading="eager">
+    <div class="banner-frame" id="bannerSlider">
+      <div class="banner-carousel">
+        <div class="banner-slide active" role="group" aria-label="Showroom Banner 1">
+          <img src="assets/showroom_banner.jpg" alt="ஸ்ரீ இலக்கியா மெகா ஷோரூம் - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ், அறந்தாங்கி" class="banner-img" fetchpriority="high">
+        </div>
+        <div class="banner-slide" role="group" aria-label="Showroom Banner 2">
+          <img src="assets/showroom_title_banner_padded.jpg" alt="ஸ்ரீ இலக்கியா - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ்" class="banner-img" loading="eager">
+        </div>
+      </div>
+      <button class="banner-arrow prev" id="bannerPrev" aria-label="Previous banner">‹</button>
+      <button class="banner-arrow next" id="bannerNext" aria-label="Next banner">›</button>
+      <div class="banner-dots" id="bannerDots" role="tablist" aria-label="Banner selection">
+        <button class="b-dot active" aria-label="Banner 1" data-bslide="0"></button>
+        <button class="b-dot" aria-label="Banner 2" data-bslide="1"></button>
+      </div>
     </div>
   </div>
 </section>
@@ -900,20 +930,90 @@ document.addEventListener("click",e=>{const b=e.target.closest("[data-open]");if
  $("#pdt").textContent=p.name;$("#pdb").innerHTML=`<div class="modal-img-wrap"><img src="${imgUrl}" alt="${esc(p.name)}" onerror="this.onerror=null;this.src='${fallbackUrl}'" class="modal-img"></div><p><strong>${esc(d.en)}</strong> · ${esc(p.category)}</p><p style="margin:.6rem 0">${esc(p.desc)}</p><p><strong>Availability:</strong> ${esc(p.status)}</p><p><strong>Brand:</strong> ${p.brand?esc(p.brand):"All Leading Brands Available"}</p><p style="margin-top:1rem"><a class="btn b-wa" target="_blank" rel="noopener" href="${enq(p)}">Enquire on WhatsApp</a></p>`;pd.showModal()});
 $("#pdx").onclick=()=>pd.close();pd.addEventListener("click",e=>{if(e.target===pd)pd.close()});
 $("#pv").onclick=()=>{$("#pdt").textContent="Privacy policy";$("#pdb").innerHTML=`<p>This site is a product catalogue. It has no accounts or payments.</p><h3>What we collect</h3><p>The enquiry form does not send data to our servers. It opens WhatsApp with your message so you can send it yourself. Your name, number and message reach us only when you send that WhatsApp message.</p><h3>Cookies and tracking</h3><p>This site sets no cookies and runs no analytics. Fonts load from Google Fonts.</p><h3>Contact</h3><p>${esc(CONFIG.phoneDisplay)}, ${esc(CONFIG.address)}</p><p class="note">Owner: review this text with a legal adviser before launch.</p>`;pd.showModal()};
-/* slider (safe guarded) */
-const slidesContainer=$("#slides");
-const dotsContainer=$("#dots");
-if(slidesContainer && dotsContainer && CONFIG.slides && CONFIG.slides.length){
-  let si=0,timer;const sl=CONFIG.slides;
-  slidesContainer.innerHTML=sl.map((s,i)=>`<div class="slide" role="group" aria-roledescription="slide" aria-label="${i+1} of ${sl.length}"><div class="wrap"><div><span class="tag">${esc(s.tag)}</span><h2>${esc(s.title)}</h2><p>${esc(s.text)}</p><div class="acts"><button class="btn b-y" data-dept="${s.dept}">Browse ${esc(DEPTS[s.dept].en)}</button><a class="btn b-wa" target="_blank" rel="noopener" href="${WA(`வணக்கம் ஸ்ரீ இலக்கியா (Sri Ilakkiya, Aranthangi), உங்கள் ${DEPTS[s.dept].ta} (${DEPTS[s.dept].en}) பிரிவில் உள்ள புதிய மாடல்கள் மற்றும் சலுகை விலைகள் அறிய விரும்புகிறேன்.`)}">Ask on WhatsApp</a></div></div><div class="sglyph" aria-hidden="true">${s.glyph}</div></div></div>`).join("");
-  dotsContainer.innerHTML=sl.map((_,i)=>`<button aria-label="Go to slide ${i+1}" data-s="${i}"></button>`).join("");
-  function show(i){si=(i+sl.length)%sl.length;document.querySelectorAll(".slide").forEach((el,j)=>el.classList.toggle("on",j===si));document.querySelectorAll("#dots button").forEach((b,j)=>b.setAttribute("aria-current",j===si))}
-  if($("#prev")) $("#prev").onclick=()=>{show(si-1);auto()};
-  if($("#next")) $("#next").onclick=()=>{show(si+1);auto()};
-  dotsContainer.onclick=e=>{const b=e.target.closest("[data-s]");if(b){show(+b.dataset.s);auto()}};
-  function auto(){clearInterval(timer);if(!matchMedia("(prefers-reduced-motion:reduce)").matches)timer=setInterval(()=>show(si+1),6500)}
-  show(0);auto();
-}
+/* Automatic 2-Image Showroom Banner Slider (Sri Ilakkiya) */
+(function initShowroomBanner() {
+  const slides = document.querySelectorAll('.banner-slide');
+  const dots = document.querySelectorAll('.b-dot');
+  if (!slides || slides.length < 2) return;
+  
+  let currentIdx = 0;
+  let autoTimer = null;
+  
+  function goToSlide(idx) {
+    currentIdx = (idx + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentIdx);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIdx);
+    });
+  }
+  
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(() => {
+      goToSlide(currentIdx + 1);
+    }, 3500); // Changes automatically every 3.5 seconds
+  }
+  
+  function stopAuto() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+  
+  const prevBtn = document.getElementById('bannerPrev');
+  const nextBtn = document.getElementById('bannerNext');
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(currentIdx - 1);
+      startAuto();
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(currentIdx + 1);
+      startAuto();
+    });
+  }
+  
+  dots.forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetIdx = parseInt(dot.getAttribute('data-bslide'), 10);
+      goToSlide(targetIdx);
+      startAuto();
+    });
+  });
+
+  // Mobile Touch Swipe Support
+  let touchStartX = 0;
+  const sliderEl = document.getElementById('bannerSlider');
+  if (sliderEl) {
+    sliderEl.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    sliderEl.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX < touchStartX - 35) {
+        goToSlide(currentIdx + 1);
+        startAuto();
+      } else if (touchEndX > touchStartX + 35) {
+        goToSlide(currentIdx - 1);
+        startAuto();
+      }
+    }, { passive: true });
+  }
+
+  // Start auto rotation immediately
+  startAuto();
+})();
 /* offers with date window */
 function renderOffers(){
   const today=new Date().toISOString().slice(0,10);
