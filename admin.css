@@ -4,25 +4,25 @@
    ========================================================================== */
 
 :root {
-  --g: #006B2D;
-  --g-hover: #005222;
-  --y: #F5C542;
-  --y-hover: #E0AE2C;
-  --m: #8B1E24;
-  --m-hover: #6D1419;
-  --c: #F4F0E6;
-  --b: #542A20;
+  --g: #00843D;
+  --g-hover: #006830;
+  --y: #FFD200;
+  --y-hover: #F5B800;
+  --m: #C8102E;
+  --m-hover: #A61021;
+  --c: #F4F9F5;
+  --b: #0E2917;
   --w: #FFFFFF;
-  --border: #E2D9C8;
-  --border-subtle: #EDE4D4;
-  --mu: #6E5B52;
+  --border: #CFE4D7;
+  --border-subtle: #E2EFE7;
+  --mu: #476352;
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
-  --shadow: 0 4px 18px rgba(84, 42, 32, 0.08);
-  --shadow-lg: 0 12px 30px rgba(84, 42, 32, 0.12);
+  --shadow: 0 4px 18px rgba(0, 132, 61, 0.08);
+  --shadow-lg: 0 12px 30px rgba(0, 132, 61, 0.12);
 }
 
 *, *::before, *::after {
@@ -47,7 +47,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: radial-gradient(circle at center, #3E2018 0%, #1A0D0A 100%);
+  background: radial-gradient(circle at center, #0B3E20 0%, #041A0D 100%);
   color: #FFFFFF;
 }
 

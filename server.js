@@ -208,7 +208,9 @@ const server = http.createServer(async (req, res) => {
     };
 
     if (ext === '.html') {
-      headers['Cache-Control'] = 'no-cache';
+      headers['Cache-Control'] = 'no-cache, no-store, must-revalidate';
+      headers['Pragma'] = 'no-cache';
+      headers['Expires'] = '0';
     } else if (['.jpg', '.jpeg', '.png', '.webp', '.svg', '.ico', '.woff2'].includes(ext)) {
       headers['Cache-Control'] = 'public, max-age=31536000, immutable';
     } else if (['.css', '.js', '.json'].includes(ext)) {

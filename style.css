@@ -3,45 +3,45 @@
    ========================================================================== */
 
 :root {
-  /* Traditional Tamil Nadu Commercial Signboard Palette */
-  --color-dark-green: #006B2D;
-  --color-dark-green-hover: #005423;
-  --color-dark-green-light: #E8F5E9;
+  /* Tamil Nadu Commercial Signboard Palette - Emerald & Gold Theme */
+  --color-dark-green: #00843D;
+  --color-dark-green-hover: #006830;
+  --color-dark-green-light: #E8F7EE;
 
-  --color-golden-yellow: #F5C542;
-  --color-golden-yellow-hover: #E5B22B;
-  --color-golden-yellow-light: #FFF9E6;
+  --color-golden-yellow: #FFD200;
+  --color-golden-yellow-hover: #F5B800;
+  --color-golden-yellow-light: #FFFBEA;
 
-  --color-maroon: #8B1E24;
-  --color-maroon-hover: #701419;
-  --color-maroon-light: #FBEAEB;
+  --color-maroon: #C8102E;
+  --color-maroon-hover: #A61021;
+  --color-maroon-light: #FDF2F4;
 
-  --color-cream: #F4F0E6;
-  --color-cream-subtle: #FAF7F0;
+  --color-cream: #F4F9F5;
+  --color-cream-subtle: #F8FCF9;
   --color-cream-white: #FFFFFF;
 
-  --color-dark-brown: #542A20;
-  --color-dark-brown-dark: #3A1B14;
-  --color-dark-brown-light: #6E3B30;
-  --color-dark-brown-border: #D8CEBE;
+  --color-dark-brown: #0E2917;
+  --color-dark-brown-dark: #07190E;
+  --color-dark-brown-light: #1A4027;
+  --color-dark-brown-border: #CFE4D7;
 
   /* Harmonized Semantic Tokens */
-  --color-ivory: #F4F0E6;
+  --color-ivory: #F4F9F5;
   --color-ivory-light: #FFFFFF;
-  --color-sand: #E7DFD0;
-  --color-sand-border: #DDD2BF;
+  --color-sand: #E2EFE7;
+  --color-sand-border: #CFE4D7;
 
-  --color-walnut: #542A20;
-  --color-walnut-dark: #3A1B14;
-  --color-walnut-card: #542A20;
+  --color-walnut: #0E2917;
+  --color-walnut-dark: #07190E;
+  --color-walnut-card: #0E2917;
 
-  --color-charcoal: #542A20;
-  --color-muted: #6E5B52;
-  --color-muted-light: #948279;
+  --color-charcoal: #0E2917;
+  --color-muted: #476352;
+  --color-muted-light: #6A8574;
 
-  --color-gold: #F5C542;
-  --color-gold-light: #FCE68C;
-  --color-gold-hover: #E5B22B;
+  --color-gold: #FFD200;
+  --color-gold-light: #FFE875;
+  --color-gold-hover: #F5B800;
 
   --color-whatsapp: #25D366;
   --color-whatsapp-hover: #1EBE5D;
