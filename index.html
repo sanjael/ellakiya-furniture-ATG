@@ -244,6 +244,56 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
   .sub{font-size:0.84rem;margin-bottom:1rem}
   .tabs button{padding:0.4rem 0.85rem;font-size:0.8rem;min-height:38px}
 }
+/* Showroom Building & Kalyana Seervarisai Mega Offer Section */
+.showroom-building-section{padding:1.2rem 0 1.8rem;background:linear-gradient(180deg,#F0FAF4 0%,#FFFFFF 100%)}
+.showcase-card{background:#fff;border:2px solid #E0EEDF;border-radius:20px;overflow:hidden;box-shadow:0 12px 35px rgba(0,100,45,0.08);padding:1.5rem}
+.showcase-grid{display:grid;grid-template-columns:420px 1fr;gap:2rem;align-items:center}
+.showcase-media{position:relative}
+.media-frame{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:3px solid #FFD200;background:#003818}
+.building-img{width:100%;height:auto;max-height:560px;object-fit:cover;display:block;transition:transform .4s ease}
+.showcase-card:hover .building-img{transform:scale(1.02)}
+.media-tag{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(4,23,12,0.88);backdrop-filter:blur(6px);color:#fff;padding:8px 12px;border-radius:10px;font-size:0.82rem;font-weight:700;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,210,0,0.4)}
+.pulse-dot{width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 0 0 rgba(16,185,129,0.7);animation:pulseDot 2s infinite;flex-shrink:0}
+@keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(16,185,129,0.7)}70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+.offer-pill{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FFE875 0%,#FFD200 100%);color:#452600;font-size:0.85rem;font-weight:800;padding:6px 14px;border-radius:30px;box-shadow:0 2px 8px rgba(255,210,0,0.35);margin-bottom:0.75rem}
+.pill-star{color:#C8102E;font-size:1rem}
+.showcase-title{font-size:1.75rem;line-height:1.25;color:#005023;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;margin-bottom:0.8rem}
+.price-banner{background:linear-gradient(135deg,#00632E 0%,#00843D 100%);border-radius:14px;padding:1rem 1.25rem;color:#fff;margin-bottom:1rem;border:1.5px solid #FFD200;box-shadow:0 4px 15px rgba(0,100,45,0.15)}
+.price-lbl{display:block;font-size:0.82rem;color:#E8F7EE;text-transform:uppercase;letter-spacing:0.5px;font-weight:700}
+.price-val{font-size:2.1rem;font-weight:900;color:#FFD200;line-height:1.1;margin:4px 0 6px;font-family:'Plus Jakarta Sans',sans-serif}
+.price-val .curr{font-size:1.4rem;vertical-align:baseline;margin-right:2px}
+.price-val .only{font-size:0.95rem;color:#E8F7EE;font-weight:600}
+.bonus-badge{background:rgba(255,255,255,0.16);border:1px dashed #FFD200;border-radius:8px;padding:6px 10px;font-size:0.88rem;color:#fff;display:flex;align-items:center;gap:6px}
+.gift-icon{font-size:1.15rem}
+.package-list{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.2rem}
+.pkg-item{background:#F8FCF9;border:1px solid #E2EFE5;border-radius:10px;padding:0.7rem 0.85rem;display:flex;align-items:flex-start;gap:10px}
+.pkg-icon{font-size:1.4rem;line-height:1;flex-shrink:0}
+.pkg-item strong{display:block;font-size:0.88rem;color:#0F172A;font-weight:700}
+.pkg-item p{margin:2px 0 0;font-size:0.78rem;color:#64748B;line-height:1.3}
+.showcase-actions{display:flex;gap:0.8rem;margin-bottom:0.8rem;flex-wrap:wrap}
+.btn-mega{flex:1;min-width:200px;min-height:48px;display:inline-flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:0.95rem;border-radius:10px;text-decoration:none;padding:0.6rem 1rem;gap:6px}
+.showcase-address-bar{font-size:0.82rem;color:#475569;background:#F1F5F9;padding:7px 12px;border-radius:8px;display:flex;align-items:center;gap:6px}
+
+@media(max-width:960px){
+  .showcase-grid{grid-template-columns:1fr;gap:1.2rem}
+  .building-img{max-height:440px;object-position:top center}
+  .showcase-title{font-size:1.45rem}
+  .price-val{font-size:1.8rem}
+  .package-list{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .showroom-building-section{padding:0.8rem 0 0.5rem}
+  .showcase-card{padding:0.85rem;border-radius:14px}
+  .media-frame{border-radius:12px;border-width:2px}
+  .building-img{max-height:380px}
+  .btn-mega{min-width:100%;font-size:0.92rem;min-height:46px}
+  .showcase-title{font-size:1.25rem}
+  .price-banner{padding:0.85rem}
+  .price-val{font-size:1.6rem}
+  .bonus-badge{font-size:0.82rem}
+  .pkg-item{padding:0.6rem}
+  .showcase-address-bar{font-size:0.76rem}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -284,7 +334,91 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
   </div>
 </section>
 
-
+<!-- Grand Showroom Building & Kalyana Seervarisai Mega Offer Section (Directly Above Popular in Showroom) -->
+<section class="showroom-building-section" id="mega-offer" aria-label="ஸ்ரீ இலக்கியா மெகா ஷோரூம் &amp; கல்யாண சீர்வரிசை ஆஃபர்">
+  <div class="wrap">
+    <div class="showcase-card">
+      <div class="showcase-grid">
+        <div class="showcase-media">
+          <div class="media-frame">
+            <picture>
+              <source srcset="assets/showroom_building_offer.webp" type="image/webp">
+              <img src="assets/showroom_building_offer.jpg" alt="ஸ்ரீ இலக்கியா பிரம்மாண்ட புதிய ஷோரூம் கட்டிடம் மற்றும் ₹1,35,000 கல்யாண சீர்வரிசை ஆஃபர், அறந்தாங்கி" class="building-img" width="867" height="1024" loading="eager" fetchpriority="high">
+            </picture>
+            <div class="media-tag">
+              <span class="pulse-dot"></span>
+              <span>ஸ்ரீ இலக்கியா நேரடி ஷோரூம் • அறந்தாங்கி</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="showcase-info">
+          <div class="offer-pill">
+            <span class="pill-star">★</span> எப்பொழுதும் முகூர்த்த கால மெகா ஆஃபர்
+          </div>
+          
+          <h2 class="showcase-title">
+            கல்யாண சீர்வரிசை பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ்
+          </h2>
+          
+          <div class="price-banner">
+            <span class="price-lbl">முழு தொகுப்பு மெகா சலுகை விலை</span>
+            <div class="price-val">
+              <span class="curr">₹</span>1,35,000 <span class="only">மட்டுமே</span>
+            </div>
+            <div class="bonus-badge">
+              <span class="gift-icon">🎁</span> <strong>LG குளிர்சாதனப் பெட்டி (Refrigerator) முற்றிலும் இலவசம்!</strong>
+            </div>
+          </div>
+          
+          <div class="package-list">
+            <div class="pkg-item">
+              <span class="pkg-icon">🪑</span>
+              <div>
+                <strong>தேக்கு மர பீரோ &amp; மரக்கட்டில்</strong>
+                <p>உயர்தர ஸ்ப்ரிங் மெத்தையுடன்</p>
+              </div>
+            </div>
+            <div class="pkg-item">
+              <span class="pkg-icon">🪞</span>
+              <div>
+                <strong>டிரெசிங் டேபிள்</strong>
+                <p>கண்ணாடி மற்றும் டிராயர் வசதியுடன்</p>
+              </div>
+            </div>
+            <div class="pkg-item">
+              <span class="pkg-icon">🍲</span>
+              <div>
+                <strong>கல்யாண சீர்வரிசை பாத்திரங்கள்</strong>
+                <p>அனைத்து பித்தளை, அண்டா, சில்வர், அலுமினியம் &amp; பிளாஸ்டிக் பொருட்கள்</p>
+              </div>
+            </div>
+            <div class="pkg-item">
+              <span class="pkg-icon">⚡</span>
+              <div>
+                <strong>பிராண்டட் வீட்டு உபயோக சாதனங்கள்</strong>
+                <p>பிரீத்தி மிக்சி, லட்சுமி கிரைண்டர், கிராம்டன் டவர்பேன், 5L+7L குக்கர், ஹாட்பாக்ஸ்</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="showcase-actions">
+            <a class="btn b-wa btn-mega" target="_blank" rel="noopener" href="https://wa.me/919894359722?text=%E0%AE%B5%E0%AE%A3%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D%20%E0%AE%B8%E0%AF%8D%E0%AE%B0%E0%AF%80%20%E0%AE%87%E0%AE%B2%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%BF%E0%AE%AF%E0%AE%BE%2C%20%E0%AE%89%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AE%BF%E0%AE%A9%E0%AF%8D%20%E2%82%B91%2C35%2C000%20%E0%AE%95%E0%AE%B2%E0%AF%8D%E0%AE%AF%E0%AE%BE%E0%AE%A3%20%E0%AE%9A%E0%AF%80%E0%AE%B0%E0%AF%8D%E0%AE%B5%E0%AE%B0%E0%AE%BF%E0%AE%9A%E0%AF%88%20%E0%AE%AE%E0%AF%86%E0%AE%95%E0%AE%BE%20%E0%AE%86%E0%AE%83%E0%AE%AA%E0%AE%B0%E0%AF%8D%20%E0%AE%AA%E0%AE%B1%E0%AF%8D%E0%AE%B1%E0%AE%BF%20%E0%AE%B5%E0%AE%BF%E0%AE%B5%E0%AE%B0%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D%20%E0%AE%85%E0%AE%B1%E0%AE%BF%E0%AE%AF%20%E0%AE%B5%E0%AE%BF%E0%AE%B0%E0%AF%81%E0%AE%AE%E0%AF%8D%E0%AE%AA%E0%AF%81%E0%AE%95%E0%AE%BF%E0%AE%B1%E0%AF%87%E0%AE%A9%E0%AF%8D.">
+              <span>💬 WhatsApp-ல் சலுகை விபரம் பெற</span>
+            </a>
+            <a class="btn b-y btn-mega" href="tel:+919894359722">
+              <span>📞 நேரடி அழைப்பு: 98943 59722</span>
+            </a>
+          </div>
+          
+          <div class="showcase-address-bar">
+            <span>📍 பட்டுக்கோட்டை ரோடு, பாரதியார் தெரு, பச்சைக்காளியம்மன் கோவில் சந்து (உள்புறம்), அறந்தாங்கி.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="s" id="featured"><div class="wrap"><h2>Popular in the showroom</h2><p class="sub">Featured items by department. Ask us for today's price.</p>
  <div class="tabs" role="tablist" id="ftabs"></div><div class="grid" id="fgrid"></div></div></section>
@@ -375,7 +509,13 @@ const CONFIG={
   {tag:"Furniture",title:"Furniture for every room",text:"Ask about the wood, finish and size you need.",dept:"furniture",glyph:"🛏️"},
   {tag:"Appliances & Electronics",title:"Appliances and electronics",text:"Mixers, grinders, TVs and more. Ask for today's price.",dept:"appliances",glyph:"📺"}],
  /* offers: {title,text,start:"YYYY-MM-DD",end:"YYYY-MM-DD",published:true} — shown only inside the date window */
- offers:[]
+  offers:[
+    {
+      title:"எப்பொழுதும் முகூர்த்த கால மெகா ஆஃபர் - ₹1,35,000 மட்டுமே!",
+      text:"கல்யாண சீர்வரிசை பாத்திரம், பர்னிச்சர் & எலக்ட்ரானிக்ஸ் முழு தொகுப்பு (தேக்கு மர பீரோ, மரக்கட்டில், ஸ்ப்ரிங் மெத்தை, டிரெசிங் டேபிள், பிரீத்தி மிக்சி, லட்சுமி கிரைண்டர், கிராம்டன் டவர்பேன், 5L+7L குக்கர், சீர்வரிசை பாத்திரங்கள்). மேலும் LG குளிர்சாதனப் பெட்டி (Refrigerator) முற்றிலும் இலவசம்!",
+      published:true
+    }
+  ]
 };
 const DEPTS={
 vessels:{en:"Vessels & Kitchenware",ta:"பாத்திரங்கள்",color:"#00843D",subs:{
@@ -400,11 +540,11 @@ furniture:{en:"Furniture",ta:"மரச்சாமான்கள்",color:"#0
 appliances:{en:"Home Appliances & Electronics",ta:"வீட்டு உபயோக சாதனங்கள்",color:"#C8102E",subs:{
 "Kitchen appliances":["Mixer grinders","Wet grinders","Induction stoves","Electric kettles","Juicers","Blenders","Choppers","Toasters","Gas stoves"],
 "Home appliances":["Refrigerators","Washing machines","Microwave ovens","Water heaters","Irons"],
-"Cooling & air":["Ceiling fans","Table fans","Pedestal fans","Air coolers"],
+"Cooling & air":["Air Conditioners (AC)","Ceiling fans","Table fans","Pedestal fans","Air coolers"],
 "Electronics":["Televisions","Home theatre & soundbars","Mobile accessories","Lighting"]}}
 };
 /* ===== product data (generated; replace/extend via admin later) ===== */
-const FEAT=new Set(["Pressure cookers","Idli pots","Kuthu vilakku","Seervarisai vessel sets","Cots","Sofas","Mixer grinders","Televisions","Dosa stones","Wet grinders","Steel Almirahs (Iron Bureau)","Wardrobes (Wooden Bureau)"]);
+const FEAT=new Set(["Pressure cookers","Idli pots","Kuthu vilakku","Seervarisai vessel sets","Cots","Sofas","Dressing tables","Mixer grinders","Televisions","Air Conditioners (AC)","Washing machines","Refrigerators","Dosa stones","Wet grinders","Steel Almirahs (Iron Bureau)","Wardrobes (Wooden Bureau)"]);
 const slug=s=>s.toLowerCase().replace(/&/g,"and").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const BASE_PRODUCTS=[];
 for(const[dk,d]of Object.entries(DEPTS))for(const[sub,items]of Object.entries(d.subs))items.forEach(n=>{BASE_PRODUCTS.push({id:`${dk}-${slug(sub)}-${slug(n)}`,name:n,dept:dk,category:sub,subcategory:null,desc:`${n} in the ${sub.toLowerCase()} range. High quality, durable showroom stock. Ask on WhatsApp for sizes, specifications and today's best price.`,brand:null,price:null,offer:null,status:"Showroom Stock Available",featured:FEAT.has(n),image:null,demo:false})});
@@ -544,11 +684,12 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('school lunch box') || n.includes('lunch bag') || n.includes('food jar')) return 'assets/kids_travel.jpg';
   if (n.includes('cartoon bottle') || n.includes('travel flask')) return 'assets/kids_travel.jpg';
 
-  // 13. Wedding & Gifts
-  if (n.includes('seervarisai') || n.includes('wedding gift')) return 'assets/banner_seervarisai.jpg';
-  if (n.includes('wedding dinner set') || n.includes('housewarming') || n.includes('gift')) return 'assets/dinner_set.jpg';
+  // 13. Wedding & Gifts & Vessels Crowd
+  if (n.includes('vessel crowd') || n.includes('vessels crowd') || n.includes('crowd')) return 'assets/vessel_crowd.jpg';
+  if (n.includes('seervarisai') || n.includes('wedding gift') || n.includes('wedding dinner set')) return 'assets/vessel_crowd.jpg';
+  if (n.includes('housewarming') || n.includes('gift')) return 'assets/dinner_set.jpg';
 
-  // 14. Furniture (Authentic Iron Bureau & Wooden Bureau local assets)
+  // 14. Furniture (Authentic Iron Bureau, Wooden Bureau & Dressing Table)
   if (n.includes('iron bureau') || n.includes('steel almirah') || n.includes('iron biro') || n.includes('steel bureau') || n.includes('almirah') || n.includes('irom broll') || n.includes('iron broll') || n.includes('steel almirahs')) return 'assets/iron_bureau.jpg';
   if (n.includes('wooden bureau') || n.includes('wooden wardrobe') || n.includes('wooden biro') || n.includes('wardrobe') || n.includes('wooden broll') || n.includes('woonden') || n.includes('bureau') || n.includes('biro') || n.includes('broll')) return 'assets/wooden_bureau.jpg';
   if (n.includes('cot') || n.includes('bed') || n.includes('folding cot')) return 'assets/teak_cot.jpg';
@@ -557,27 +698,28 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('dining chair') || n.includes('office chair') || n.includes('plastic chair')) return 'https://images.unsplash.com/photo-1580481077195-c3a821a58875?auto=format&fit=crop&w=600&q=80';
   if (n.includes('tea table')) return 'https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=600&q=80';
   if (n.includes('tv stand')) return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('dressing table')) return 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('dressing table') || n.includes('dressing') || n.includes('vanity')) return 'assets/dressing_table.jpg';
   if (n.includes('study table')) return 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80';
   if (n.includes('mattress')) return 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80';
   if (n.includes('shoe rack')) return 'assets/iron_bureau.jpg';
   if (n.includes('pooja stand')) return 'assets/pooja_festival.jpg';
   if (n.includes('kids furniture')) return 'https://images.unsplash.com/photo-1580481077195-c3a821a58875?auto=format&fit=crop&w=600&q=80';
 
-  // 15. Appliances & Electronics (Fixed: wet grinder, toaster, water heater, irons, table fan)
+  // 15. Appliances & Electronics (Authentic Humanized Realistic Photos: TV, AC, Washing Machine, Fridge)
   if (n.includes('mixer grinder') || n.includes('mixie') || n.includes('blender') || n.includes('chopper')) return 'assets/mixer_grinder.jpg';
   if (n.includes('wet grinder') || n.includes('grinder')) return 'assets/wet_grinder.jpg';
   if (n.includes('toaster')) return 'assets/toaster.jpg';
   if (n.includes('water heater') || n.includes('geyser')) return 'assets/water_heater.jpg';
   if ((n === 'irons' || n.includes('iron box') || n === 'iron') && !n.includes('iron kadai') && !n.includes('iron bureau') && !n.includes('iron biro') && !n.includes('cast iron')) return 'assets/iron_box.jpg';
+  if (n.includes('air conditioner') || n.includes('air-conditioner') || n === 'ac' || n.includes('(ac)') || n.includes('split ac') || n.includes('inverter ac')) return 'assets/air_conditioner.jpg';
   if (n.includes('table fan') || n.includes('desk fan') || n.includes('pedestal fan')) return 'assets/table_fan.jpg';
   if (n.includes('ceiling fan')) return 'https://images.unsplash.com/photo-1618941716939-553df3c6c278?auto=format&fit=crop&w=600&q=80';
   if (n.includes('cooler') || n.includes('fan')) return 'assets/table_fan.jpg';
-  if (n.includes('refrigerator') || n.includes('fridge')) return 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('washing machine')) return 'https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('refrigerator') || n.includes('fridge') || n.includes('frezzge') || n.includes('freezer')) return 'assets/refrigerator_fridge.jpg';
+  if (n.includes('washing machine') || n.includes('washer')) return 'assets/washing_machine.jpg';
   if (n.includes('microwave') || n.includes('oven')) return 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=600&q=80';
   if (n.includes('induction') || n.includes('gas stove') || n.includes('cooktop') || n.includes('stove')) return 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('television') || n.includes('tv')) return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('television') || n.includes('tv') || n.includes('smart tv') || n.includes('led tv')) return 'assets/television_smart.jpg';
   if (n.includes('juicer')) return 'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=600&q=80';
   if (n.includes('home theatre') || n.includes('soundbar')) return 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80';
   if (n.includes('mobile accessory') || n.includes('mobile')) return 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=600&q=80';
