@@ -86,8 +86,8 @@ section.s{padding:3.2rem 0}.s h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-botto
 .card:hover .card-img{transform:scale(1.06)}
 .card-cat-badge{position:absolute;top:8px;left:8px;color:#fff;font-size:0.68rem;font-weight:700;padding:3px 8px;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,0.25);letter-spacing:0.02em;z-index:2}
 .card-offer-badge{position:absolute;bottom:8px;left:8px;background:#8B1E24;color:#F5C542;font-size:0.66rem;font-weight:800;padding:2px 7px;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,0.3);letter-spacing:0.02em;z-index:2}
-.modal-img-wrap{width:100%;max-height:260px;overflow:hidden;border-radius:8px;margin-bottom:1rem;background:#F8F6F0}
-.modal-img{width:100%;height:100%;max-height:260px;object-fit:cover;display:block}
+.modal-img-wrap{width:100%;max-height:380px;border-radius:8px;margin-bottom:1rem;background:#F8F6F0;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.06)}
+.modal-img{max-width:100%;max-height:380px;width:auto;height:auto;object-fit:contain;display:block}
 .cb{padding:.9rem;display:flex;flex-direction:column;gap:.25rem;flex:1}.cb small{color:var(--mu);font-size:.76rem;text-transform:uppercase;letter-spacing:.04em}
 .cb h3{font:700 1rem/1.3 'Plus Jakarta Sans';color:var(--b)}.price{font-weight:700;color:var(--m);font-size:.88rem;margin-top:auto;padding-top:.3rem}
 .cb .row{display:flex;gap:.4rem;margin-top:.5rem}.cb .row .btn{flex:1;padding:.45rem .5rem;font-size:.8rem;min-height:40px}
@@ -211,9 +211,9 @@ footer a,footer button{display:block;padding:.2rem 0;text-decoration:none;text-a
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:grid;grid-template-columns:1fr 1fr;gap:.5rem;padding:.5rem .7rem calc(.5rem + var(--safe));background:linear-gradient(180deg,#005023 0%,#003818 100%);border-top:3px solid var(--y);box-shadow:0 -4px 16px rgba(0,0,0,0.25)}
 @media(max-width:1024px){.fab{display:none !important}}
 @media(min-width:1025px){.bar{display:none}body{padding-bottom:0}}
-dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:0;color:var(--b)}dialog::backdrop{background:#000a}
-.dh{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.2rem;background:var(--g);color:var(--y)}.dh button{font-size:1.4rem;width:44px;height:44px;color:#fff}
-.db{padding:1.2rem;max-height:70vh;overflow:auto}.db h3{margin:1rem 0 .3rem}
+dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:0;color:var(--b);max-height:90vh;display:flex;flex-direction:column;margin:auto;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,0.45)}dialog::backdrop{background:rgba(0,0,0,0.65);backdrop-filter:blur(4px)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.2rem;background:var(--g);color:var(--y);position:sticky;top:0;z-index:10}.dh button{font-size:1.4rem;width:44px;height:44px;color:#fff;background:none;border:none;cursor:pointer}
+.db{padding:1.2rem;max-height:calc(90vh - 60px);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}.db h3{margin:1rem 0 .3rem}
 /* Authentic Tamil Showroom Signboard Banner with Automatic 2-Image Slider */
 .showroom-signboard{padding:1.2rem 0 0.8rem;background:linear-gradient(180deg,#E8F7EE 0%,var(--c) 100%)}
 .banner-frame{position:relative;border-radius:16px;padding:5px;background:linear-gradient(135deg,#FFE875 0%,#FFD200 35%,#F59E0B 70%,#FFE45E 100%);box-shadow:0 14px 40px rgba(0,132,61,0.18),0 4px 14px rgba(0,0,0,0.08);overflow:hidden;max-width:1120px;margin:0 auto;user-select:none;-webkit-user-select:none}
@@ -519,7 +519,7 @@ const CONFIG={
  mapsUrl:"https://maps.google.com/?q=Sri+Ilakkiya+Aranthangi",
  hours:"திங்கள் - ஞாயிறு: 9:00 AM - 9:30 PM",
  domain:"elakkiyapathiramfurniture.com",siteUrl:"https://elakkiyapathiramfurniture.com",email:"info@elakkiyapathiramfurniture.com",
- brands:["Prestige","Preethi","Butterfly","Hawkins","LG","Whirlpool","Samsung","Philips"],
+ brands:["Prestige","Preethi","Butterfly","LG","Whirlpool","Samsung","Philips"],
  slides:[
   {tag:"Vessels & Kitchenware",title:"Everything for the kitchen",text:"Stainless steel, traditional cookware, pooja items, gifts and more.",dept:"vessels",glyph:"🍲"},
   {tag:"Furniture",title:"Furniture for every room",text:"Ask about the wood, finish and size you need.",dept:"furniture",glyph:"🛏️"},
@@ -529,11 +529,11 @@ const CONFIG={
 };
 const DEPTS={
 vessels:{en:"Vessels & Kitchenware",ta:"பாத்திரங்கள்",color:"#00843D",subs:{
-"Stainless steel":["Plates","Tumblers","Bowls","Pots","Vessels","Water pots","Milk vessels","Idli pots","Steel containers","Buckets (Steel & Plastic)","Milk cans"],
-"Traditional cookware":["Brass vessels","Brass Anda (அண்டா)","Brass Uruli (உருளி)","Earthen pots","Soapstone vessels","Iron kadai","Dosa stones","Copper vessels","Bronze vessels","Traditional cooking pots"],
-"Cookware":["Pressure cookers","Non-stick tawas","Dosa tawas","Frying pans","Kadai","Saucepans","Biryani pots","Appam pans","Paniyaram pans","Steamers","Rice cookers"],
-"Dining & serving":["Dinner sets","Meal plates","Compartment plates","Serving trays","Serving bowls","Spoons","Water jugs"],
-"Tea & coffee":["Davara sets","Kettles","Milk boilers","Tea strainers","Flasks","Vacuum bottles"],
+"Stainless steel":["Plates","Bowls","Pots","Milk vessels","Idli pots","Buckets (Steel & Plastic)","Milk cans"],
+"Traditional cookware":["Brass vessels","Brass Anda (அண்டா)","Brass Uruli (உருளி)","Iron kadai","Dosa stones","Copper vessels","Bronze vessels"],
+"Cookware":["Pressure cookers","Non-stick tawas","Dosa tawas","Frying pans","Kadai","Biryani pots","Appam pans","Paniyaram pans","Steamers","Rice cookers"],
+"Dining & serving":["Dinner sets","Meal plates","Compartment plates","Serving trays","Serving bowls","Spoons"],
+"Tea & coffee":["Davara sets","Kettles","Milk boilers","Flasks"],
 "Baking & special cooking":["Cake moulds","Baking trays","Murukku presses","Puttu makers","Sevai makers","Appam cookware"],
 "Storage":["Rice drums","Dal containers","Spice boxes","Airtight containers","Lunch boxes","Oil dispensers","Hot boxes"],
 "Kitchen accessories":["Cutting boards","Ladles"],
@@ -622,7 +622,8 @@ function getProductImage(name, category, dept, customImg){
 
   // 3. Cookware & Steaming
   if (n.includes('cooker') && !n.includes('rice') && !n.includes('commercial')) return 'assets/cooker.jpg';
-  if (n.includes('idli') || n.includes('steamer')) return 'assets/idli_pot.jpg';
+  if (n.includes('steamer')) return 'assets/steamers.jpg';
+  if (n.includes('idli')) return 'assets/idli_pot.jpg';
   if (n.includes('dosa tawa') || n.includes('non-stick tawa') || n.includes('tawa') || n.includes('appam') || n.includes('paniyaram')) return 'assets/dosa_tawa.jpg';
   if (n.includes('frying pan')) return 'https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?auto=format&fit=crop&w=600&q=80';
   if (n.includes('saucepan')) return 'https://images.unsplash.com/photo-1585837575652-267c041d77d4?auto=format&fit=crop&w=600&q=80';
@@ -649,7 +650,7 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('water pot') || n.includes('milk vessel')) return 'assets/showroom_steel_stacks.jpg';
   if (n.includes('carrier') || n.includes('tiffin')) return 'https://images.unsplash.com/photo-1594998893017-36147cbcae05?auto=format&fit=crop&w=600&q=80';
   if (n.includes('steel container') || (c.includes('steel') && n.includes('container')) || n.includes('டப்பா')) return 'assets/storage_organization.jpg';
-  if (n === 'pots' || n === 'pot') return 'assets/showroom_steel_stacks.jpg';
+  if (n === 'pots' || n === 'pot') return 'assets/pots.jpg';
   if (n === 'vessels' || n === 'vessel') return 'assets/showroom_steel_stacks.jpg';
 
   // 6. Tea & Coffee
@@ -663,7 +664,8 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('murukku press') || n.includes('idiyappam maker') || n.includes('sevai maker')) return 'assets/baking_special.jpg';
 
   // 8. Storage
-  if (n.includes('rice drum') || n.includes('oil dispenser') || n.includes('hot box') || n.includes('casserole')) return 'assets/storage_organization.jpg';
+  if (n.includes('oil dispenser')) return 'assets/oil_dispenser.jpg';
+  if (n.includes('rice drum') || n.includes('hot box') || n.includes('casserole')) return 'assets/storage_organization.jpg';
   if (n.includes('dal container') || n.includes('airtight container') || n.includes('storage jar')) return 'assets/storage_organization.jpg';
   if (n.includes('spice box')) return 'assets/storage_organization.jpg';
   if (n.includes('lunch box')) return 'assets/kids_travel.jpg';
@@ -711,7 +713,7 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('tv stand')) return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80';
   if (n.includes('dressing table') || n.includes('dressing') || n.includes('vanity')) return 'assets/dressing_table.jpg';
   if (n.includes('study table')) return 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('mattress')) return 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('mattress')) return 'assets/mattress.jpg';
   if (n.includes('shoe rack')) return 'assets/iron_bureau.jpg';
   if (n.includes('pooja stand')) return 'assets/pooja_festival.jpg';
   if (n.includes('kids furniture')) return 'https://images.unsplash.com/photo-1580481077195-c3a821a58875?auto=format&fit=crop&w=600&q=80';
@@ -788,88 +790,67 @@ $("#hrs").innerHTML=CONFIG.hours?`<strong>Hours:</strong> ${esc(CONFIG.hours)}`:
 /* Top Brands Data */
 const BRANDS_DATA = [
   {
-    name: "Philips",
-    count: "999 products",
-    rating: "4.0",
-    filterKey: "appliances",
-    logoSvg: `<svg viewBox="0 0 140 45" width="130" height="42" xmlns="http://www.w3.org/2000/svg"><g transform="translate(2, 2)"><path d="M12 2 C6 2 2 6 2 12 L2 24 C2 34 12 40 20 42 C28 40 38 34 38 24 L38 12 C38 6 34 2 28 2 Z" fill="#0B5ED7"/><circle cx="13" cy="14" r="2.2" fill="#fff"/><circle cx="27" cy="14" r="2.2" fill="#fff"/><circle cx="13" cy="30" r="1.8" fill="#fff"/><circle cx="27" cy="30" r="1.8" fill="#fff"/><path d="M7 21 Q14 18 20 21 T33 21 M7 25 Q14 22 20 25 T33 25" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g><text x="48" y="30" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="20" fill="#0B5ED7" letter-spacing="1.2">PHILIPS</text></svg>`
+    "name": "Philips",
+    "count": "999 products",
+    "rating": "4.0",
+    "filterKey": "appliances",
+    "logoSvg": "<svg viewBox=\"0 0 140 45\" width=\"130\" height=\"42\" xmlns=\"http://www.w3.org/2000/svg\"><g transform=\"translate(2, 2)\"><path d=\"M12 2 C6 2 2 6 2 12 L2 24 C2 34 12 40 20 42 C28 40 38 34 38 24 L38 12 C38 6 34 2 28 2 Z\" fill=\"#0B5ED7\"/><circle cx=\"13\" cy=\"14\" r=\"2.2\" fill=\"#fff\"/><circle cx=\"27\" cy=\"14\" r=\"2.2\" fill=\"#fff\"/><circle cx=\"13\" cy=\"30\" r=\"1.8\" fill=\"#fff\"/><circle cx=\"27\" cy=\"30\" r=\"1.8\" fill=\"#fff\"/><path d=\"M7 21 Q14 18 20 21 T33 21 M7 25 Q14 22 20 25 T33 25\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\"/></g><text x=\"48\" y=\"30\" font-family=\"'Plus Jakarta Sans', Arial, sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#0B5ED7\" letter-spacing=\"1.2\">PHILIPS</text></svg>"
   },
   {
-    name: "Prestige",
-    count: "365 products",
-    rating: "4.0",
-    filterKey: "cooker",
-    logoSvg: `<svg viewBox="0 0 150 45" width="135" height="42" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="146" height="37" rx="8" fill="#fff" stroke="#D1D5DB" stroke-width="1.2"/><text x="75" y="28" font-family="'Times New Roman', Georgia, serif" font-weight="bold" font-style="italic" font-size="24" fill="#E53935" text-anchor="middle">Prestige</text><path d="M16 35 Q75 42 134 34" fill="none" stroke="#1F2937" stroke-width="1.6" stroke-linecap="round"/><circle cx="130" cy="14" r="1.8" fill="#E53935"/></svg>`
+    "name": "Prestige",
+    "count": "365 products",
+    "rating": "4.0",
+    "filterKey": "cooker",
+    "logoSvg": "<svg viewBox=\"0 0 150 45\" width=\"135\" height=\"42\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"2\" y=\"4\" width=\"146\" height=\"37\" rx=\"8\" fill=\"#fff\" stroke=\"#D1D5DB\" stroke-width=\"1.2\"/><text x=\"75\" y=\"28\" font-family=\"'Times New Roman', Georgia, serif\" font-weight=\"bold\" font-style=\"italic\" font-size=\"24\" fill=\"#E53935\" text-anchor=\"middle\">Prestige</text><path d=\"M16 35 Q75 42 134 34\" fill=\"none\" stroke=\"#1F2937\" stroke-width=\"1.6\" stroke-linecap=\"round\"/><circle cx=\"130\" cy=\"14\" r=\"1.8\" fill=\"#E53935\"/></svg>"
   },
   {
-    name: "Pigeon",
-    count: "847 products",
-    rating: "4.0",
-    filterKey: "cookware",
-    logoSvg: `<svg viewBox="0 0 145 45" width="130" height="42" xmlns="http://www.w3.org/2000/svg"><path d="M12 22 C12 10 32 4 72 4 C112 4 135 12 135 24 C135 36 108 42 72 42 C30 42 12 34 12 22 Z" fill="#C62828"/><path d="M34 18 C30 15 28 17 26 19 C23 16 20 18 21 21 C17 20 16 22 18 24 C14 24 13 27 16 29 C20 31 25 29 29 26 L35 24 Z" fill="#ffffff"/><text x="82" y="29" font-family="'Brush Script MT', 'Plus Jakarta Sans', cursive, sans-serif" font-weight="bold" font-size="22" fill="#ffffff" text-anchor="middle">Pigeon</text><circle cx="118" cy="14" r="1.5" fill="#ffffff"/></svg>`
+    "name": "Usha",
+    "count": "989 products",
+    "rating": "4.0",
+    "filterKey": "fan",
+    "logoSvg": "<svg viewBox=\"0 0 150 45\" width=\"135\" height=\"42\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"#D32F2F\"><rect x=\"8\" y=\"7\" width=\"28\" height=\"30\" rx=\"3\"/><rect x=\"40\" y=\"7\" width=\"28\" height=\"30\" rx=\"3\"/><rect x=\"72\" y=\"7\" width=\"28\" height=\"30\" rx=\"3\"/><rect x=\"104\" y=\"7\" width=\"28\" height=\"30\" rx=\"3\"/></g><g fill=\"#ffffff\" font-family=\"'Plus Jakarta Sans', Arial, sans-serif\" font-weight=\"900\" font-size=\"20\" text-anchor=\"middle\"><text x=\"22\" y=\"29\">U</text><text x=\"54\" y=\"29\">S</text><text x=\"86\" y=\"29\">H</text><text x=\"118\" y=\"29\">A</text></g><circle cx=\"138\" cy=\"13\" r=\"1.8\" fill=\"#D32F2F\"/></svg>"
   },
   {
-    name: "Usha",
-    count: "989 products",
-    rating: "4.0",
-    filterKey: "fan",
-    logoSvg: `<svg viewBox="0 0 150 45" width="135" height="42" xmlns="http://www.w3.org/2000/svg"><g fill="#D32F2F"><rect x="8" y="7" width="28" height="30" rx="3"/><rect x="40" y="7" width="28" height="30" rx="3"/><rect x="72" y="7" width="28" height="30" rx="3"/><rect x="104" y="7" width="28" height="30" rx="3"/></g><g fill="#ffffff" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="20" text-anchor="middle"><text x="22" y="29">U</text><text x="54" y="29">S</text><text x="86" y="29">H</text><text x="118" y="29">A</text></g><circle cx="138" cy="13" r="1.8" fill="#D32F2F"/></svg>`
+    "name": "Daikin",
+    "count": "624 products",
+    "rating": "4.0",
+    "filterKey": "cooler",
+    "logoSvg": "<svg viewBox=\"0 0 150 45\" width=\"135\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"6,34 6,12 30,12\" fill=\"#0097E6\"/><text x=\"36\" y=\"31\" font-family=\"'Plus Jakarta Sans', Arial, sans-serif\" font-weight=\"900\" font-size=\"22\" fill=\"#0097E6\" letter-spacing=\"1\">DAIKIN</text></svg>"
   },
   {
-    name: "Hero",
-    count: "214 products",
-    rating: "4.0",
-    filterKey: "appliances",
-    logoSvg: `<svg viewBox="0 0 145 48" width="130" height="44" xmlns="http://www.w3.org/2000/svg"><g transform="translate(6, 2)"><path d="M18 4 L32 8 L32 24 C32 34 18 42 18 42 C18 42 4 34 4 24 L4 8 Z" fill="#1E293B"/><circle cx="18" cy="18" r="10" fill="#ffffff"/><text x="18" y="23" font-family="Arial, sans-serif" font-weight="900" font-size="14" fill="#E53935" text-anchor="middle">H</text><path d="M8 27 L28 27 L18 39 Z" fill="#E53935"/><text x="18" y="34" font-family="Arial, sans-serif" font-weight="900" font-size="6" fill="#ffffff" text-anchor="middle">HERO</text></g><text x="54" y="31" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="22" fill="#1E293B" letter-spacing="0.5">Hero</text></svg>`
+    "name": "LG - Life Good",
+    "count": "125 products",
+    "rating": "4.0",
+    "filterKey": "refrigerator",
+    "logoSvg": "<svg viewBox=\"0 0 150 45\" width=\"135\" height=\"42\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"22\" cy=\"22\" r=\"18\" fill=\"#A50034\"/><circle cx=\"15\" cy=\"18\" r=\"2.2\" fill=\"#ffffff\"/><path d=\"M20 12 L20 23 L28 23\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M32 22 C32 27 27 32 22 32 C17 32 12 27 12 22 C12 17 17 12 22 12 C25 12 28 13 30 15\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2.5\" stroke-linecap=\"round\"/><text x=\"50\" y=\"30\" font-family=\"'Plus Jakarta Sans', Arial, sans-serif\" font-weight=\"900\" font-size=\"22\" fill=\"#4B5563\">LG</text></svg>"
   },
   {
-    name: "Daikin",
-    count: "624 products",
-    rating: "4.0",
-    filterKey: "cooler",
-    logoSvg: `<svg viewBox="0 0 150 45" width="135" height="40" xmlns="http://www.w3.org/2000/svg"><polygon points="6,34 6,12 30,12" fill="#0097E6"/><text x="36" y="31" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="22" fill="#0097E6" letter-spacing="1">DAIKIN</text></svg>`
+    "name": "Panasonic",
+    "count": "380 products",
+    "rating": "4.0",
+    "filterKey": "television",
+    "logoSvg": "<svg viewBox=\"0 0 150 45\" width=\"140\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\"><text x=\"4\" y=\"29\" font-family=\"'Plus Jakarta Sans', Arial, sans-serif\" font-weight=\"900\" font-size=\"21\" fill=\"#004098\" letter-spacing=\"0.5\">Panasonic</text></svg>"
   },
   {
-    name: "LG - Life Good",
-    count: "125 products",
-    rating: "4.0",
-    filterKey: "refrigerator",
-    logoSvg: `<svg viewBox="0 0 150 45" width="135" height="42" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="18" fill="#A50034"/><circle cx="15" cy="18" r="2.2" fill="#ffffff"/><path d="M20 12 L20 23 L28 23" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 22 C32 27 27 32 22 32 C17 32 12 27 12 22 C12 17 17 12 22 12 C25 12 28 13 30 15" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/><text x="50" y="30" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="22" fill="#4B5563">LG</text></svg>`
+    "name": "Preethi",
+    "count": "450 products",
+    "rating": "4.0",
+    "filterKey": "mixer",
+    "logoSvg": "<svg viewBox=\"0 0 150 45\" width=\"135\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M6 32 Q35 6 70 20 Q105 34 136 12\" fill=\"none\" stroke=\"#E53935\" stroke-width=\"3\" stroke-linecap=\"round\"/><text x=\"8\" y=\"28\" font-family=\"'Plus Jakarta Sans', Arial, sans-serif\" font-weight=\"900\" font-size=\"22\" fill=\"#E53935\">Preethi</text></svg>"
   },
   {
-    name: "Panasonic",
-    count: "380 products",
-    rating: "4.0",
-    filterKey: "television",
-    logoSvg: `<svg viewBox="0 0 150 45" width="140" height="40" xmlns="http://www.w3.org/2000/svg"><text x="4" y="29" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="21" fill="#004098" letter-spacing="0.5">Panasonic</text></svg>`
+    "name": "Butterfly",
+    "count": "520 products",
+    "rating": "4.0",
+    "filterKey": "wet grinder",
+    "logoSvg": "<svg viewBox=\"0 0 150 45\" width=\"135\" height=\"42\" xmlns=\"http://www.w3.org/2000/svg\"><g transform=\"translate(4, 7)\"><path d=\"M10 14 C4 6 0 9 3 18 C6 24 11 20 11 15 Z\" fill=\"#E65100\"/><path d=\"M13 14 C18 6 22 9 19 18 C16 24 11 20 11 15 Z\" fill=\"#F57C00\"/></g><text x=\"32\" y=\"29\" font-family=\"'Plus Jakarta Sans', Arial, sans-serif\" font-weight=\"900\" font-size=\"20\" fill=\"#E65100\">Butterfly</text></svg>"
   },
   {
-    name: "Preethi",
-    count: "450 products",
-    rating: "4.0",
-    filterKey: "mixer",
-    logoSvg: `<svg viewBox="0 0 150 45" width="135" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M6 32 Q35 6 70 20 Q105 34 136 12" fill="none" stroke="#E53935" stroke-width="3" stroke-linecap="round"/><text x="8" y="28" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="22" fill="#E53935">Preethi</text></svg>`
-  },
-  {
-    name: "Butterfly",
-    count: "520 products",
-    rating: "4.0",
-    filterKey: "wet grinder",
-    logoSvg: `<svg viewBox="0 0 150 45" width="135" height="42" xmlns="http://www.w3.org/2000/svg"><g transform="translate(4, 7)"><path d="M10 14 C4 6 0 9 3 18 C6 24 11 20 11 15 Z" fill="#E65100"/><path d="M13 14 C18 6 22 9 19 18 C16 24 11 20 11 15 Z" fill="#F57C00"/></g><text x="32" y="29" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="20" fill="#E65100">Butterfly</text></svg>`
-  },
-  {
-    name: "Hawkins",
-    count: "310 products",
-    rating: "4.0",
-    filterKey: "cooker",
-    logoSvg: `<svg viewBox="0 0 150 45" width="135" height="40" xmlns="http://www.w3.org/2000/svg"><ellipse cx="75" cy="22" rx="68" ry="17" fill="#FFD54F" stroke="#D32F2F" stroke-width="2"/><text x="75" y="29" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="19" fill="#1F2937" text-anchor="middle">Hawkins</text></svg>`
-  },
-  {
-    name: "Samsung",
-    count: "670 products",
-    rating: "4.0",
-    filterKey: "television",
-    logoSvg: `<svg viewBox="0 0 150 45" width="135" height="40" xmlns="http://www.w3.org/2000/svg"><ellipse cx="75" cy="22" rx="68" ry="17" fill="#1428A0"/><text x="75" y="28" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="15" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">SAMSUNG</text></svg>`
+    "name": "Samsung",
+    "count": "670 products",
+    "rating": "4.0",
+    "filterKey": "television",
+    "logoSvg": "<svg viewBox=\"0 0 150 45\" width=\"135\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\"><ellipse cx=\"75\" cy=\"22\" rx=\"68\" ry=\"17\" fill=\"#1428A0\"/><text x=\"75\" y=\"28\" font-family=\"'Plus Jakarta Sans', Arial, sans-serif\" font-weight=\"900\" font-size=\"15\" fill=\"#ffffff\" text-anchor=\"middle\" letter-spacing=\"1.5\">SAMSUNG</text></svg>"
   }
 ];
 
