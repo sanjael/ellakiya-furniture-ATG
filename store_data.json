@@ -142,16 +142,5 @@
     }
   },
   "customProducts": [],
-  "offers": [
-    {
-      "id": "off-festive-default",
-      "title": "Grand Festive Showroom Offer",
-      "discount": "Special Showroom Festive Discount",
-      "desc": "Special showroom discount on complete kitchenware and wedding seervarisai vessel sets. Visit our Aranthangi showroom today!",
-      "text": "Special showroom discount on complete kitchenware and wedding seervarisai vessel sets. Visit our Aranthangi showroom today!",
-      "start": "2026-01-01",
-      "end": "2026-12-31",
-      "published": true
-    }
-  ]
+  "offers": []
 }

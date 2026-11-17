@@ -8,10 +8,12 @@
 window.addEventListener('unhandledrejection',function(e){var m=(e&&e.reason)?(typeof e.reason==='string'?e.reason:(e.reason.message||'')):'';if(m.includes('message channel closed')||m.includes('asynchronous response')||m.includes('ResizeObserver')||m.includes('Extension context')){e.preventDefault()}});
 window.addEventListener('error',function(e){var m=(e&&e.message)?e.message:'';if(m.includes('message channel closed')||m.includes('asynchronous response')||m.includes('ResizeObserver')){e.preventDefault()}});
 </script>
-<title>Sri Ilakkiya (ஸ்ரீ இலக்கியா) – Vessels, Furniture &amp; Home Appliances | Aranthangi</title>
-<meta name="description" content="Sri Ilakkiya, Aranthangi: browse vessels &amp; kitchenware, solid teak furniture, home appliances and electronics. Enquire on WhatsApp for prices.">
-<meta property="og:title" content="Sri Ilakkiya (ஸ்ரீ இலக்கியா), Aranthangi"><meta property="og:type" content="website">
-<meta property="og:description" content="Vessels, furniture, appliances and electronics. Enquire on WhatsApp.">
+<title>ஸ்ரீ இலக்கியா (Sri Ilakkiya) – elakkiyapathiramfurniture.com – பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ் மெகா ஷோரூம், அறந்தாங்கி</title>
+<meta name="description" content="ஸ்ரீ இலக்கியா (Sri Ilakkiya) – elakkiyapathiramfurniture.com: அறந்தாங்கி மெகா ஷோரூம். பாத்திரங்கள், தேக்கு மர பர்னிச்சர், வீட்டு உபயோக சாதனங்கள் &amp; எலக்ட்ரானிக்ஸ். WhatsApp: 98943 59722.">
+<link rel="canonical" href="https://elakkiyapathiramfurniture.com/">
+<meta property="og:title" content="ஸ்ரீ இலக்கியா (Sri Ilakkiya) – elakkiyapathiramfurniture.com"><meta property="og:type" content="website">
+<meta property="og:url" content="https://elakkiyapathiramfurniture.com/">
+<meta property="og:description" content="ஸ்ரீ இலக்கியா – பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ் மெகா ஷோரூம், அறந்தாங்கி. elakkiyapathiramfurniture.com">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🪔%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -249,10 +251,19 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
 .showcase-card{background:#fff;border:2px solid #E0EEDF;border-radius:20px;overflow:hidden;box-shadow:0 12px 35px rgba(0,100,45,0.08);padding:1.5rem}
 .showcase-grid{display:grid;grid-template-columns:420px 1fr;gap:2rem;align-items:center}
 .showcase-media{position:relative}
-.media-frame{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:3px solid #FFD200;background:#003818}
-.building-img{width:100%;height:auto;max-height:560px;object-fit:cover;display:block;transition:transform .4s ease}
-.showcase-card:hover .building-img{transform:scale(1.02)}
-.media-tag{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(4,23,12,0.88);backdrop-filter:blur(6px);color:#fff;padding:8px 12px;border-radius:10px;font-size:0.82rem;font-weight:700;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,210,0,0.4)}
+.media-frame{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:3px solid #FFD200;background:#003818;user-select:none;-webkit-user-select:none}
+.showcase-carousel{position:relative;width:100%;height:490px;overflow:hidden;background:#003818}
+.sc-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;transition:opacity .6s ease-in-out,transform .6s ease-in-out;transform:scale(1.02);display:flex;align-items:center;justify-content:center}
+.sc-slide.active{opacity:1;visibility:visible;transform:scale(1)}
+.sc-slide .building-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.sc-arrow{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,0.55);border:1.5px solid rgba(255,255,255,0.7);color:#fff;font-size:1.3rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:all .2s ease;backdrop-filter:blur(4px);padding:0;line-height:1}
+.sc-arrow:hover{background:rgba(0,132,61,0.9);border-color:#FFD200;color:#FFD200;transform:translateY(-50%) scale(1.08)}
+.sc-arrow.prev{left:10px}
+.sc-arrow.next{right:10px}
+.sc-dots{position:absolute;bottom:42px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;background:rgba(0,0,0,0.55);padding:4px 8px;border-radius:20px;backdrop-filter:blur(4px)}
+.sc-dot{width:18px;height:5px;border-radius:3px;background:rgba(255,255,255,0.5);border:none;cursor:pointer;transition:all .3s ease;padding:0}
+.sc-dot.active{width:28px;background:#FFD200;box-shadow:0 0 6px rgba(255,210,0,0.8)}
+.media-tag{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(4,23,12,0.88);backdrop-filter:blur(6px);color:#fff;padding:8px 12px;border-radius:10px;font-size:0.82rem;font-weight:700;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,210,0,0.4);z-index:9}
 .pulse-dot{width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 0 0 rgba(16,185,129,0.7);animation:pulseDot 2s infinite;flex-shrink:0}
 @keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(16,185,129,0.7)}70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
 .offer-pill{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FFE875 0%,#FFD200 100%);color:#452600;font-size:0.85rem;font-weight:800;padding:6px 14px;border-radius:30px;box-shadow:0 2px 8px rgba(255,210,0,0.35);margin-bottom:0.75rem}
@@ -276,7 +287,7 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
 
 @media(max-width:960px){
   .showcase-grid{grid-template-columns:1fr;gap:1.2rem}
-  .building-img{max-height:440px;object-position:top center}
+  .showcase-carousel{height:390px}
   .showcase-title{font-size:1.45rem}
   .price-val{font-size:1.8rem}
   .package-list{grid-template-columns:1fr}
@@ -285,7 +296,13 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
   .showroom-building-section{padding:0.8rem 0 0.5rem}
   .showcase-card{padding:0.85rem;border-radius:14px}
   .media-frame{border-radius:12px;border-width:2px}
-  .building-img{max-height:380px}
+  .showcase-carousel{height:320px}
+  .sc-arrow{width:28px;height:28px;font-size:1.1rem}
+  .sc-arrow.prev{left:6px}
+  .sc-arrow.next{right:6px}
+  .sc-dots{bottom:36px;padding:3px 6px;gap:4px}
+  .sc-dot{width:14px;height:4px}
+  .sc-dot.active{width:20px}
   .btn-mega{min-width:100%;font-size:0.92rem;min-height:46px}
   .showcase-title{font-size:1.25rem}
   .price-banner{padding:0.85rem}
@@ -305,7 +322,7 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
  <nav aria-label="Main">
   <a href="#home">Home</a>
   <div class="dd" id="dd"><button aria-expanded="false" aria-controls="mega" id="ddb">Departments ▾</button><div class="mega" id="mega" role="menu"></div></div>
-  <a href="#products">Products</a><a href="#brands">Brands</a><a href="#offers">Offers</a><a href="#showroom">Showroom</a><a href="#contact">Contact</a>
+  <a href="#products">Products</a><a href="#brands">Brands</a><a href="#mega-offer">Offers</a><a href="#showroom">Showroom</a><a href="#contact">Contact</a>
  </nav>
  <div class="hact"><a class="btn b-y hide-s" data-tel href="#">Call</a><a class="btn b-wa hide-s" data-wa href="#">WhatsApp</a><button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav">☰</button></div>
 </div><div class="mnav" id="mnav"></div></header>
@@ -340,14 +357,52 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
     <div class="showcase-card">
       <div class="showcase-grid">
         <div class="showcase-media">
-          <div class="media-frame">
-            <picture>
-              <source srcset="assets/showroom_building_offer.webp" type="image/webp">
-              <img src="assets/showroom_building_offer.jpg" alt="ஸ்ரீ இலக்கியா பிரம்மாண்ட புதிய ஷோரூம் கட்டிடம் மற்றும் ₹1,35,000 கல்யாண சீர்வரிசை ஆஃபர், அறந்தாங்கி" class="building-img" width="867" height="1024" loading="eager" fetchpriority="high">
-            </picture>
-            <div class="media-tag">
-              <span class="pulse-dot"></span>
-              <span>ஸ்ரீ இலக்கியா நேரடி ஷோரூம் • அறந்தாங்கி</span>
+          <div class="media-frame" id="showcaseSlider">
+            <div class="showcase-carousel">
+              <div class="sc-slide active" role="group" aria-label="Showroom Building">
+                <picture>
+                  <source srcset="assets/showroom_building_offer.webp" type="image/webp">
+                  <img src="assets/showroom_building_offer.jpg" alt="ஸ்ரீ இலக்கியா புதிய ஷோரூம் கட்டிடம் &amp; ₹1,35,000 கல்யாண சீர்வரிசை ஆஃபர்" class="building-img" width="867" height="1024" loading="eager" fetchpriority="high">
+                </picture>
+                <div class="media-tag"><span class="pulse-dot"></span><span>ஸ்ரீ இலக்கியா நேரடி முகப்பு தோற்றம் • அறந்தாங்கி</span></div>
+              </div>
+              <div class="sc-slide" role="group" aria-label="Showroom Wedding Package">
+                <picture>
+                  <source srcset="assets/showroom_combo_setup.webp" type="image/webp">
+                  <img src="assets/showroom_combo_setup.jpg" alt="ஸ்ரீ இலக்கியா நேரடி ஷோரூம் ₹1,35,000 கல்யாண சீர்வரிசை முழு தொகுப்பு" class="building-img" width="1024" height="770" loading="lazy">
+                </picture>
+                <div class="media-tag"><span class="pulse-dot"></span><span>ரூ.1,35,000 நேரடி ஷோரூம் செட்-அப் காட்சி</span></div>
+              </div>
+              <div class="sc-slide" role="group" aria-label="Showroom Vessels Display">
+                <picture>
+                  <source srcset="assets/showroom_combo_vessels.webp" type="image/webp">
+                  <img src="assets/showroom_combo_vessels.jpg" alt="ஸ்ரீ இலக்கியா சீர்வரிசை பாத்திரங்கள் &amp; கட்டில் அலங்கார காட்சி" class="building-img" width="770" height="1024" loading="lazy">
+                </picture>
+                <div class="media-tag"><span class="pulse-dot"></span><span>சீர்வரிசை பித்தளை &amp; சில்வர் பாத்திர தொகுப்பு</span></div>
+              </div>
+              <div class="sc-slide" role="group" aria-label="Showroom Vessels Aisle">
+                <picture>
+                  <source srcset="assets/showroom_vessels_aisle.webp" type="image/webp">
+                  <img src="assets/showroom_vessels_aisle.jpg" alt="ஸ்ரீ இலக்கியா பாத்திரங்கள் ஷோரூம் உட்புற காட்சி" class="building-img" width="770" height="1024" loading="lazy">
+                </picture>
+                <div class="media-tag"><span class="pulse-dot"></span><span>பாத்திரங்கள் &amp; விளக்குகள் ஷோரூம் பகுதி</span></div>
+              </div>
+              <div class="sc-slide" role="group" aria-label="Showroom Steel Stacks">
+                <picture>
+                  <source srcset="assets/showroom_steel_stacks.webp" type="image/webp">
+                  <img src="assets/showroom_steel_stacks.jpg" alt="ஸ்ரீ இலக்கியா சில்வர் பாத்திரங்கள் &amp; தட்டுகள் அடுக்குகள்" class="building-img" width="1024" height="770" loading="lazy">
+                </picture>
+                <div class="media-tag"><span class="pulse-dot"></span><span>சில்வர் தட்டுகள் &amp; சேமிப்பு பாத்திரங்கள்</span></div>
+              </div>
+            </div>
+            <button class="sc-arrow prev" id="scPrev" aria-label="Previous slide">‹</button>
+            <button class="sc-arrow next" id="scNext" aria-label="Next slide">›</button>
+            <div class="sc-dots" id="scDots">
+              <button class="sc-dot active" aria-label="Slide 1" data-scslide="0"></button>
+              <button class="sc-dot" aria-label="Slide 2" data-scslide="1"></button>
+              <button class="sc-dot" aria-label="Slide 3" data-scslide="2"></button>
+              <button class="sc-dot" aria-label="Slide 4" data-scslide="3"></button>
+              <button class="sc-dot" aria-label="Slide 5" data-scslide="4"></button>
             </div>
           </div>
         </div>
@@ -458,7 +513,6 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
   <nav class="pagination" id="pagination" aria-label="Product catalogue pages"></nav>
  </div></section>
 
-<section class="s" id="offers" style="background:#fff"><div class="wrap"><h2>Offers</h2><div id="offerlist"></div></div></section>
 
 <section class="s" id="brands" style="background:#fff"><div class="wrap">
   <h2>Popular Brands in Store</h2>
@@ -482,10 +536,10 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
 </main>
 
 <footer><div class="wrap"><div class="cols">
- <div><h3 class="ta">ஸ்ரீ இலக்கியா · Sri Ilakkiya</h3><p id="faddr"></p></div>
+ <div><h3 class="ta">ஸ்ரீ இலக்கியா · Sri Ilakkiya</h3><p style="color:var(--y);font-weight:700;margin:0.3rem 0 0.5rem">🌐 elakkiyapathiramfurniture.com</p><p id="faddr"></p></div>
  <div><h3>Departments</h3><div id="fdept"></div></div>
  <div><h3>Contact</h3><a data-tel href="#" aria-label="Call Sri Ilakkiya">+91 98943 59722</a><a data-wa href="#" aria-label="WhatsApp Sri Ilakkiya">WhatsApp</a><button id="pv" aria-label="Read Privacy Policy">Privacy policy</button></div></div>
- <p style="margin-top:1.5rem;font-size:.8rem;opacity:.8">© <span id="yr"></span> Sri Ilakkiya · <a href="admin.html" style="opacity:0.3;color:inherit;text-decoration:none;" title="Showroom Portal">🔒</a></p></div></footer>
+ <p style="margin-top:1.5rem;font-size:.8rem;opacity:.8">© <span id="yr"></span> Sri Ilakkiya · elakkiyapathiramfurniture.com · All rights reserved · <a href="admin.html" style="opacity:0.3;color:inherit;text-decoration:none;" title="Showroom Portal">🔒</a></p></div></footer>
 
 <a class="fab" data-wa href="#" aria-label="Chat on WhatsApp">✆</a>
 <div class="bar"><a class="btn b-y" data-tel href="#">Call</a><a class="btn b-wa" data-wa href="#">WhatsApp</a></div>
@@ -502,25 +556,19 @@ const CONFIG={
  address:"பட்டுக்கோட்டை ரோடு, பாரதியார் தெரு, பச்சைக்காளியம்மன் கோவில் சந்து (உள்புறம்), அறந்தாங்கி – 614616",
  mapsUrl:"https://maps.google.com/?q=Sri+Ilakkiya+Aranthangi",
  hours:"திங்கள் - ஞாயிறு: 9:00 AM - 9:30 PM",
- email:"",siteUrl:"",
+ domain:"elakkiyapathiramfurniture.com",siteUrl:"https://elakkiyapathiramfurniture.com",email:"info@elakkiyapathiramfurniture.com",
  brands:["Prestige","Preethi","Butterfly","Hawkins","LG","Whirlpool","Samsung","Philips"],
  slides:[
   {tag:"Vessels & Kitchenware",title:"Everything for the kitchen",text:"Stainless steel, traditional cookware, pooja items, gifts and more.",dept:"vessels",glyph:"🍲"},
   {tag:"Furniture",title:"Furniture for every room",text:"Ask about the wood, finish and size you need.",dept:"furniture",glyph:"🛏️"},
   {tag:"Appliances & Electronics",title:"Appliances and electronics",text:"Mixers, grinders, TVs and more. Ask for today's price.",dept:"appliances",glyph:"📺"}],
  /* offers: {title,text,start:"YYYY-MM-DD",end:"YYYY-MM-DD",published:true} — shown only inside the date window */
-  offers:[
-    {
-      title:"எப்பொழுதும் முகூர்த்த கால மெகா ஆஃபர் - ₹1,35,000 மட்டுமே!",
-      text:"கல்யாண சீர்வரிசை பாத்திரம், பர்னிச்சர் & எலக்ட்ரானிக்ஸ் முழு தொகுப்பு (தேக்கு மர பீரோ, மரக்கட்டில், ஸ்ப்ரிங் மெத்தை, டிரெசிங் டேபிள், பிரீத்தி மிக்சி, லட்சுமி கிரைண்டர், கிராம்டன் டவர்பேன், 5L+7L குக்கர், சீர்வரிசை பாத்திரங்கள்). மேலும் LG குளிர்சாதனப் பெட்டி (Refrigerator) முற்றிலும் இலவசம்!",
-      published:true
-    }
-  ]
+ offers:[]
 };
 const DEPTS={
 vessels:{en:"Vessels & Kitchenware",ta:"பாத்திரங்கள்",color:"#00843D",subs:{
-"Stainless steel":["Plates","Tumblers","Bowls","Pots","Vessels","Water pots","Milk vessels","Idli pots","Carriers","Steel containers"],
-"Traditional cookware":["Clay pots","Earthen pots","Soapstone vessels","Iron kadai","Dosa stones","Copper vessels","Brass vessels","Bronze vessels","Traditional cooking pots"],
+"Stainless steel":["Plates","Tumblers","Bowls","Pots","Vessels","Water pots","Milk vessels","Idli pots","Carriers","Steel containers","Buckets (Steel & Plastic)","Milk cans"],
+"Traditional cookware":["Brass vessels","Brass Anda (அண்டா)","Brass Uruli (உருளி)","Clay pots","Earthen pots","Soapstone vessels","Iron kadai","Dosa stones","Copper vessels","Bronze vessels","Traditional cooking pots"],
 "Cookware":["Pressure cookers","Non-stick tawas","Dosa tawas","Frying pans","Kadai","Saucepans","Biryani pots","Appam pans","Paniyaram pans","Steamers","Rice cookers"],
 "Dining & serving":["Dinner sets","Meal plates","Compartment plates","Serving trays","Serving bowls","Spoons","Water jugs","Fruit plates","Serving sets"],
 "Tea & coffee":["Coffee filters","Davara sets","Kettles","Milk boilers","Tea strainers","Flasks","Vacuum bottles","Milk cans"],
@@ -544,7 +592,7 @@ appliances:{en:"Home Appliances & Electronics",ta:"வீட்டு உபய�
 "Electronics":["Televisions","Home theatre & soundbars","Mobile accessories","Lighting"]}}
 };
 /* ===== product data (generated; replace/extend via admin later) ===== */
-const FEAT=new Set(["Pressure cookers","Idli pots","Kuthu vilakku","Seervarisai vessel sets","Cots","Sofas","Dressing tables","Mixer grinders","Televisions","Air Conditioners (AC)","Washing machines","Refrigerators","Dosa stones","Wet grinders","Steel Almirahs (Iron Bureau)","Wardrobes (Wooden Bureau)"]);
+const FEAT=new Set(["Seervarisai vessel sets","Plates","Steel containers","Brass vessels","Brass Anda (அண்டா)","Kuthu vilakku","Buckets (Steel & Plastic)","Pressure cookers","Idli pots","Cots","Wardrobes (Wooden Bureau)","Dressing tables","Sofas","Mixer grinders","Wet grinders","Televisions","Air Conditioners (AC)","Washing machines","Refrigerators","Steel Almirahs (Iron Bureau)"]);
 const slug=s=>s.toLowerCase().replace(/&/g,"and").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const BASE_PRODUCTS=[];
 for(const[dk,d]of Object.entries(DEPTS))for(const[sub,items]of Object.entries(d.subs))items.forEach(n=>{BASE_PRODUCTS.push({id:`${dk}-${slug(sub)}-${slug(n)}`,name:n,dept:dk,category:sub,subcategory:null,desc:`${n} in the ${sub.toLowerCase()} range. High quality, durable showroom stock. Ask on WhatsApp for sizes, specifications and today's best price.`,brand:null,price:null,offer:null,status:"Showroom Stock Available",featured:FEAT.has(n),image:null,demo:false})});
@@ -596,8 +644,9 @@ function getProductImage(name, category, dept, customImg){
   const n = (name || '').toLowerCase();
   const c = (category || '').toLowerCase();
 
-  // 1. Specific Traditional Cookware (Authentic local assets)
-  if (n.includes('brass vessel') || (c.includes('traditional') && n.includes('brass')) || n === 'brass vessels') return 'assets/brass_vessels.jpg';
+  // 1. Specific Traditional Cookware (Authentic local assets from showroom img2 & img5)
+  if (n.includes('anda') || n.includes('அண்டா') || n.includes('uruli') || n.includes('உருளி')) return 'assets/brass_vessels.jpg';
+  if (n.includes('brass vessel') || (c.includes('traditional') && n.includes('brass')) || n === 'brass vessels' || n.includes('பித்தளை')) return 'assets/brass_vessels.jpg';
   if (n.includes('bronze vessel') || (c.includes('traditional') && n.includes('bronze')) || n === 'bronze vessels' || n.includes('vengala')) return 'assets/bronze_vessels.jpg';
   if (n.includes('soapstone') || n.includes('kalchatti')) return 'assets/soapstone_vessels.jpg';
   if (n.includes('clay pot') || n.includes('manpaanai') || n.includes('earthen pot') || n.includes('earthen')) return 'assets/clay_pots.jpg';
@@ -608,7 +657,7 @@ function getProductImage(name, category, dept, customImg){
 
   // 2. Cleaning & Utility (Dedicated distinct local assets & items)
   if (n.includes('brush') || n.includes('scrubber') || n.includes('cleaning tool')) return 'assets/cleaning_brushes.jpg';
-  if (n.includes('bucket') || (n.includes('mug') && c.includes('clean'))) return 'assets/utility_buckets.jpg';
+  if (n.includes('bucket') || n.includes('வாளி') || (n.includes('mug') && c.includes('clean'))) return 'assets/utility_buckets.jpg';
   if (n.includes('dustbin')) return 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80';
   if (n.includes('soap dispenser')) return 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80';
   if (n.includes('basket')) return 'assets/cleaning_utility.jpg';
@@ -629,7 +678,7 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('fruit plate')) return 'assets/fruit_plate.jpg';
   if (n.includes('meal plate')) return 'assets/meal_plate.jpg';
   if (n.includes('dinner set')) return 'assets/dinner_set.jpg';
-  if (n.includes('plate')) return 'assets/stainless_steel_plate.jpg';
+  if (n.includes('plate') || n.includes('தட்டு') || n.includes('thali')) return 'assets/stainless_steel_plate.jpg';
   if (n.includes('baking tray')) return 'assets/baking_special.jpg';
   if (n.includes('serving tray') || n.includes('serving set') || n.includes('catering tray')) return 'assets/serving_tray.jpg';
   if (n.includes('serving bowl')) return 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80';
@@ -639,12 +688,11 @@ function getProductImage(name, category, dept, customImg){
   // 5. Stainless Steel Dining & Kitchenware
   if (n.includes('tumbler') || n.includes('cup') || n.includes('glass')) return 'https://images.unsplash.com/photo-1577937927133-66ef06acdf18?auto=format&fit=crop&w=600&q=80';
   if (n.includes('bowl')) return 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('water pot')) return 'assets/stainless_steel.jpg';
-  if (n.includes('milk vessel')) return 'assets/stainless_steel.jpg';
+  if (n.includes('water pot') || n.includes('milk vessel')) return 'assets/showroom_steel_stacks.jpg';
   if (n.includes('carrier') || n.includes('tiffin')) return 'https://images.unsplash.com/photo-1594998893017-36147cbcae05?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('steel container') || (c.includes('steel') && n.includes('container'))) return 'assets/storage_organization.jpg';
-  if (n === 'pots' || n === 'pot') return 'assets/stainless_steel.jpg';
-  if (n === 'vessels' || n === 'vessel') return 'assets/stainless_steel.jpg';
+  if (n.includes('steel container') || (c.includes('steel') && n.includes('container')) || n.includes('டப்பா')) return 'assets/storage_organization.jpg';
+  if (n === 'pots' || n === 'pot') return 'assets/showroom_steel_stacks.jpg';
+  if (n === 'vessels' || n === 'vessel') return 'assets/showroom_steel_stacks.jpg';
 
   // 6. Tea & Coffee
   if (n.includes('coffee filter') || n.includes('filter coffee') || n.includes('tea strainer') || n.includes('strainer')) return 'assets/tea_coffee.jpg';
@@ -1161,11 +1209,102 @@ $("#pv").onclick=()=>{$("#pdt").textContent="Privacy policy";$("#pdb").innerHTML
   // Start auto rotation immediately
   startAuto();
 })();
+
+/* Automatic 5-Image Showcase Carousel (Sri Ilakkiya Mega Offer & Showroom Views) */
+(function initShowcaseCarousel() {
+  const slides = document.querySelectorAll('.sc-slide');
+  const dots = document.querySelectorAll('.sc-dot');
+  if (!slides || slides.length < 2) return;
+  
+  let currentIdx = 0;
+  let autoTimer = null;
+  
+  function goToSlide(idx) {
+    currentIdx = (idx + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentIdx);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIdx);
+    });
+  }
+  
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(() => {
+      goToSlide(currentIdx + 1);
+    }, 3800);
+  }
+  
+  function stopAuto() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+  
+  const prevBtn = document.getElementById('scPrev');
+  const nextBtn = document.getElementById('scNext');
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(currentIdx - 1);
+      startAuto();
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(currentIdx + 1);
+      startAuto();
+    });
+  }
+  
+  dots.forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetIdx = parseInt(dot.getAttribute('data-scslide'), 10);
+      goToSlide(targetIdx);
+      startAuto();
+    });
+  });
+
+  // Mobile Touch Swipe Support
+  let touchStartX = 0;
+  const sliderEl = document.getElementById('showcaseSlider');
+  if (sliderEl) {
+    sliderEl.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    sliderEl.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX < touchStartX - 35) {
+        goToSlide(currentIdx + 1);
+        startAuto();
+      } else if (touchEndX > touchStartX + 35) {
+        goToSlide(currentIdx - 1);
+        startAuto();
+      }
+    }, { passive: true });
+
+    sliderEl.addEventListener('mouseenter', stopAuto);
+    sliderEl.addEventListener('mouseleave', startAuto);
+  }
+
+  // Start auto rotation
+  startAuto();
+})();
+
 /* offers with date window */
 function renderOffers(){
+  const el = $("#offerlist");
+  if (!el) return;
   const today=new Date().toISOString().slice(0,10);
   const live=(CONFIG.offers||[]).filter(o=>(o.published===undefined||o.published)&&(!o.start||o.start<=today)&&(!o.end||o.end>=today));
-  $("#offerlist").innerHTML=live.length?live.map(o=>{
+  el.innerHTML=live.length?live.map(o=>{
     const txt = o.text || (o.discount ? `${o.discount} — ${o.desc || ''}` : o.desc) || '';
     return `<div class="offer"><h3>${esc(o.title)}</h3><p>${esc(txt)}</p>${o.end && o.end <= '2080-12-31' ? `<small>Valid until ${esc(o.end)}</small>` : ""}<p style="margin-top:.6rem"><a class="btn b-wa" target="_blank" rel="noopener" href="${WA(`வணக்கம் ஸ்ரீ இலக்கியா (Sri Ilakkiya, Aranthangi),\n\nஉங்கள் சிறப்பு ஆஃபர் பற்றிய விவரங்கள் அறிய விரும்புகிறேன்:\n🎉 ஆஃபர் (Offer): ${o.title}\n🏷️ சலுகை (Details): ${txt}\n\nதயவுசெய்து இதன் விவரங்களை பகிரவும். நன்றி!`)}">Ask about this offer</a></p></div>`;
   }).join(""):`<div class="empty"><h3>No offers running right now</h3><p>Message us on WhatsApp to hear about festive and seasonal deals.</p><p style="margin-top:.8rem"><a class="btn b-wa" target="_blank" rel="noopener" href="${WA("வணக்கம் ஸ்ரீ இலக்கியா, உங்கள் அறந்தாங்கி ஷோரூமில் தற்போது நடக்கும் பண்டிகை தள்ளுபடி மற்றும் சிறப்பு ஆஃபர்கள் பற்றி அறிய விரும்புகிறேன்.")}">Ask about offers</a></p></div>`;
