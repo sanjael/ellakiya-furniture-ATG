@@ -480,35 +480,13 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
 
 <section class="s band" id="depts"><div class="wrap"><h2>Three departments, one showroom</h2><p class="sub">Choose a department to browse its full catalogue.</p><div class="chips" id="deptchips"></div></div></section>
 
-<section class="s" id="products"><div class="wrap"><h2>Product catalogue</h2><p class="sub">Search, filter and sort. Every item has a WhatsApp enquiry button.</p>
- <div class="tabs" style="margin:0.4rem 0 0.9rem;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch" id="prodQuickTabs" role="tablist" aria-label="Department filters">
+<section class="s" id="products"><div class="wrap"><h2>Product catalogue</h2><p class="sub">Browse our complete showroom collection. Every item has a direct WhatsApp enquiry button.</p>
+ <div class="tabs" style="margin:0.4rem 0 1.2rem;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch" id="prodQuickTabs" role="tablist" aria-label="Department filters">
   <button type="button" role="tab" aria-selected="true" class="active" data-qdept="" style="background:var(--g);color:var(--y);border-color:var(--g)">All Items</button>
   <button type="button" role="tab" aria-selected="false" data-qdept="vessels">🍲 Vessels &amp; Kitchenware</button>
   <button type="button" role="tab" aria-selected="false" data-qdept="furniture">🪑 Teak Furniture</button>
   <button type="button" role="tab" aria-selected="false" data-qdept="appliances">📺 Home Appliances</button>
  </div>
- <div class="tool">
-  <div class="q"><label for="q">Search products or items</label><input id="q" type="search" placeholder="e.g. cooker, cot, mixer, plate..."></div>
-  <div><label for="fd">Department</label><select id="fd"></select></div>
-  <div><label for="fs">Category</label><select id="fs"></select></div>
-  <div><label for="so">Sort</label><select id="so"><option value="az">Name A–Z</option><option value="za">Name Z–A</option><option value="cat">Category</option></select></div>
- </div>
- <div class="prod-meta-bar">
-   <div class="prod-meta-top">
-     <div class="count" id="count" aria-live="polite"></div>
-     <div class="page-size-wrap">
-      <label for="pageSize">Per page:</label>
-      <select id="pageSize" aria-label="Items per page">
-       <option value="8" selected>8 items (4 rows)</option>
-       <option value="12">12 items</option>
-       <option value="16">16 items</option>
-       <option value="24">24 items</option>
-       <option value="all">Show all</option>
-      </select>
-     </div>
-   </div>
-   <div class="pag-top-nav" id="pagTopNav" aria-label="Quick page navigation"></div>
-  </div>
   <div class="grid" id="grid"></div>
   <nav class="pagination" id="pagination" aria-label="Product catalogue pages"></nav>
  </div></section>
@@ -934,8 +912,19 @@ document.addEventListener("click", e => {
   const bc = e.target.closest("[data-brand]");
   if (bc) {
     const key = bc.dataset.brand;
-    $("#q").value = key;
-    render();
+    searchQuery = key ? key.toLowerCase() : "";
+    currentDept = "";
+    currentPage = 1;
+    if($("#prodQuickTabs")){
+      $("#prodQuickTabs").querySelectorAll("button").forEach(btn => {
+        const match = (btn.dataset.qdept === "");
+        btn.classList.toggle("active", match);
+        btn.style.background = match ? "var(--g)" : "#fff";
+        btn.style.color = match ? "var(--y)" : "var(--b)";
+        btn.style.borderColor = match ? "var(--g)" : "var(--ln)";
+      });
+    }
+    render(true);
     document.getElementById("products").scrollIntoView({ behavior: "smooth" });
   }
 });
@@ -957,9 +946,8 @@ $("#burger").onclick=e=>{const o=$("#mnav").classList.toggle("open");e.currentTa
 $("#mnav").addEventListener("click",e=>{if(e.target.closest("a,button"))$("#mnav").classList.remove("open")});
 /* catalogue & pagination */
 let currentPage = 1;
-const fd=$("#fd"),fs=$("#fs");
-fd.innerHTML=`<option value="">All departments</option>`+dk.map(k=>`<option value="${k}">${esc(DEPTS[k].en)}</option>`).join("");
-function fillSubs(){const k=fd.value;const subs=k?Object.keys(DEPTS[k].subs):[...new Set(PRODUCTS.map(p=>p.category))];fs.innerHTML=`<option value="">All categories</option>`+subs.map(s=>`<option>${esc(s)}</option>`).join("")}
+let currentDept = "";
+let searchQuery = "";
 
 function renderPagination(totalItems, current, perPage) {
   const pagEl = $("#pagination");
@@ -1031,40 +1019,30 @@ function renderPagination(totalItems, current, perPage) {
 
 function render(resetPage = false){
   if (resetPage) currentPage = 1;
-  const q=$("#q").value.trim().toLowerCase();
-  let l=PRODUCTS.filter(p=>(!fd.value||p.dept===fd.value)&&(!fs.value||p.category===fs.value)&&(!q||(p.name+" "+p.category+" "+((DEPTS[p.dept]||{}).en||p.dept)).toLowerCase().includes(q)));
-  const s=$("#so").value;
-  l.sort((a,b)=>s==="za"?b.name.localeCompare(a.name):s==="cat"?a.category.localeCompare(b.category)||a.name.localeCompare(b.name):a.name.localeCompare(b.name));
+  const q = searchQuery.trim().toLowerCase();
+  let l = PRODUCTS.filter(p => (!currentDept || p.dept === currentDept) && (!q || (p.name + " " + p.category + " " + (p.brand || "") + " " + ((DEPTS[p.dept] || {}).en || p.dept)).toLowerCase().includes(q)));
+  l.sort((a,b) => a.name.localeCompare(b.name));
   
   const total = l.length;
-  const perPageVal = $("#pageSize") ? $("#pageSize").value : "8";
-  const perPage = perPageVal === "all" ? (total || 8) : (parseInt(perPageVal, 10) || 8);
+  const perPage = 8;
   const totalPages = Math.ceil(total / perPage) || 1;
 
   if (currentPage > totalPages) currentPage = totalPages;
   if (currentPage < 1) currentPage = 1;
 
   const startIdx = (currentPage - 1) * perPage;
-  const endIdx = perPageVal === "all" ? total : Math.min(startIdx + perPage, total);
+  const endIdx = Math.min(startIdx + perPage, total);
   const pagedItems = l.slice(startIdx, endIdx);
 
   if (total === 0) {
-    $("#count").innerHTML = `<strong>0</strong> items found`;
-    $("#grid").innerHTML = `<div class="empty"><h3>No items match</h3><p>Try a shorter word or clear the filters. Or ask us on WhatsApp: we may stock it.</p><p style="margin-top:.8rem"><a class="btn b-wa" target="_blank" rel="noopener" href="${WA(`வணக்கம் ஸ்ரீ இலக்கியா (Sri Ilakkiya, Aranthangi), நான் தேடும் பொருள்: "${q}". உங்கள் அறந்தாங்கி ஷோரூமில் இது கிடைக்குமா என்று கூறவும்.`)}">Ask on WhatsApp</a></p></div>`;
+    $("#grid").innerHTML = `<div class="empty"><h3>No items found</h3><p>Ask us on WhatsApp: we may stock it.</p><p style="margin-top:.8rem"><a class="btn b-wa" target="_blank" rel="noopener" href="${WA(`வணக்கம் ஸ்ரீ இலக்கியா (Sri Ilakkiya, Aranthangi), உங்கள் அறந்தாங்கி ஷோரூமில் இந்த தயாரிப்பு கிடைக்குமா என்று கூறவும்.`)}">Ask on WhatsApp</a></p></div>`;
     renderPagination(0, 1, perPage);
     return;
   }
 
-  $("#count").innerHTML = `Showing <strong>${startIdx + 1}–${endIdx}</strong> of <strong>${total}</strong> items (Page ${currentPage} of ${totalPages})`;
   $("#grid").innerHTML = pagedItems.map(card).join("");
   renderPagination(total, currentPage, perPage);
 }
-
-fd.onchange=()=>{fillSubs();render(true)};
-fs.onchange=()=>render(true);
-$("#so").onchange=()=>render(true);
-$("#q").oninput=()=>render(true);
-if($("#pageSize")) $("#pageSize").onchange=()=>render(true);
 
 document.addEventListener("click", e => {
   const btn = e.target.closest("[data-page]");
@@ -1095,17 +1073,15 @@ document.addEventListener("change", e => {
   }
 });
 
-fillSubs();
 render(true);
 
 function goDept(k){
-  fd.value=k;
-  fillSubs();
-  fs.value="";
-  $("#q").value="";
+  currentDept = k || "";
+  searchQuery = "";
   if($("#prodQuickTabs")){
     $("#prodQuickTabs").querySelectorAll("button").forEach(btn => {
       const match = (btn.dataset.qdept === k) || (!k && btn.dataset.qdept === "");
+      btn.classList.toggle("active", match);
       btn.style.background = match ? "var(--g)" : "#fff";
       btn.style.color = match ? "var(--y)" : "var(--b)";
       btn.style.borderColor = match ? "var(--g)" : "var(--ln)";
@@ -1115,6 +1091,15 @@ function goDept(k){
   render(true);
   dd.classList.remove("open");
   $("#products").scrollIntoView({ behavior: "smooth" });
+}
+
+if($("#prodQuickTabs")){
+  $("#prodQuickTabs").addEventListener("click", e => {
+    const btn = e.target.closest("button[data-qdept]");
+    if (btn) {
+      goDept(btn.dataset.qdept);
+    }
+  });
 }
 document.addEventListener("click",e=>{const b=e.target.closest("[data-dept]");if(b)goDept(b.dataset.dept)});
 /* featured tabs */
