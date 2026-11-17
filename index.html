@@ -697,7 +697,7 @@ function getProductImage(name, category, dept, customImg){
   // 6. Tea & Coffee
   if (n.includes('coffee filter') || n.includes('filter coffee') || n.includes('tea strainer') || n.includes('strainer')) return 'assets/tea_coffee.jpg';
   if (n.includes('davara') || n.includes('milk boiler') || n.includes('milk can')) return 'assets/tea_coffee.jpg';
-  if (n.includes('kettle')) return 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('kettle')) return 'assets/electric_kettle.jpg';
   if (n.includes('flask') || n.includes('vacuum bottle')) return 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80';
 
   // 7. Baking & Special Cooking
@@ -760,18 +760,21 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('water heater') || n.includes('geyser')) return 'assets/water_heater.jpg';
   if ((n === 'irons' || n.includes('iron box') || n === 'iron') && !n.includes('iron kadai') && !n.includes('iron bureau') && !n.includes('iron biro') && !n.includes('cast iron')) return 'assets/iron_box.jpg';
   if (n.includes('air conditioner') || n.includes('air-conditioner') || n === 'ac' || n.includes('(ac)') || n.includes('split ac') || n.includes('inverter ac')) return 'assets/air_conditioner.jpg';
-  if (n.includes('table fan') || n.includes('desk fan') || n.includes('pedestal fan')) return 'assets/table_fan.jpg';
+  if (n.includes('pedestal fan')) return 'assets/pedestal_fan.jpg';
+  if (n.includes('table fan') || n.includes('desk fan')) return 'assets/table_fan.jpg';
   if (n.includes('ceiling fan')) return 'https://images.unsplash.com/photo-1618941716939-553df3c6c278?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('cooler') || n.includes('fan')) return 'assets/table_fan.jpg';
+  if (n.includes('cooler') || n.includes('fan')) return 'assets/pedestal_fan.jpg';
   if (n.includes('refrigerator') || n.includes('fridge') || n.includes('frezzge') || n.includes('freezer')) return 'assets/refrigerator_fridge.jpg';
   if (n.includes('washing machine') || n.includes('washer')) return 'assets/washing_machine.jpg';
-  if (n.includes('microwave') || n.includes('oven')) return 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('induction') || n.includes('gas stove') || n.includes('cooktop') || n.includes('stove')) return 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('microwave') || n.includes('oven')) return 'assets/microwave_oven.jpg';
+  if (n.includes('induction')) return 'assets/induction_stove.jpg';
+  if (n.includes('gas stove') || n.includes('cooktop') || n.includes('stove')) return 'assets/gas_stove.jpg';
   if (n.includes('television') || n.includes('tv') || n.includes('smart tv') || n.includes('led tv')) return 'assets/television_smart.jpg';
-  if (n.includes('juicer')) return 'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('juicer')) return 'assets/juicer_machine.jpg';
+  if (n.includes('kettle')) return 'assets/electric_kettle.jpg';
   if (n.includes('home theatre') || n.includes('soundbar')) return 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('mobile accessory') || n.includes('mobile')) return 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('lighting')) return 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('mobile accessory') || n.includes('mobile accessories') || n.includes('mobile')) return 'assets/mobile_accessories.jpg';
+  if (n.includes('lighting')) return 'assets/home_lighting.jpg';
 
   // Category Level Fallbacks
   if (c.includes('traditional')) return 'assets/traditional_cookware.jpg';
