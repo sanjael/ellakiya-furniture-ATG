@@ -249,10 +249,10 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
 /* Showroom Building & Kalyana Seervarisai Mega Offer Section */
 .showroom-building-section{padding:1.2rem 0 1.8rem;background:linear-gradient(180deg,#F0FAF4 0%,#FFFFFF 100%)}
 .showcase-card{background:#fff;border:2px solid #E0EEDF;border-radius:20px;overflow:hidden;box-shadow:0 12px 35px rgba(0,100,45,0.08);padding:1.5rem}
-.showcase-grid{display:grid;grid-template-columns:420px 1fr;gap:2rem;align-items:center}
+.showcase-grid{display:grid;grid-template-columns:520px 1fr;gap:2.2rem;align-items:center}
 .showcase-media{position:relative}
-.media-frame{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.12);border:3px solid #FFD200;background:#003818;user-select:none;-webkit-user-select:none}
-.showcase-carousel{position:relative;width:100%;height:490px;overflow:hidden;background:#003818}
+.media-frame{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.16);border:3px solid #FFD200;background:#003818;user-select:none;-webkit-user-select:none}
+.showcase-carousel{position:relative;width:100%;height:580px;overflow:hidden;background:#003818}
 .sc-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;visibility:hidden;transition:opacity .6s ease-in-out,transform .6s ease-in-out;transform:scale(1.02);display:flex;align-items:center;justify-content:center}
 .sc-slide.active{opacity:1;visibility:visible;transform:scale(1)}
 .sc-slide .building-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
@@ -286,8 +286,8 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
 .showcase-address-bar{font-size:0.82rem;color:#475569;background:#F1F5F9;padding:7px 12px;border-radius:8px;display:flex;align-items:center;gap:6px}
 
 @media(max-width:960px){
-  .showcase-grid{grid-template-columns:1fr;gap:1.2rem}
-  .showcase-carousel{height:390px}
+  .showcase-grid{grid-template-columns:1fr;gap:1.4rem}
+  .showcase-carousel{height:460px}
   .showcase-title{font-size:1.45rem}
   .price-val{font-size:1.8rem}
   .package-list{grid-template-columns:1fr}
@@ -296,7 +296,7 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
   .showroom-building-section{padding:0.8rem 0 0.5rem}
   .showcase-card{padding:0.85rem;border-radius:14px}
   .media-frame{border-radius:12px;border-width:2px}
-  .showcase-carousel{height:320px}
+  .showcase-carousel{height:380px}
   .sc-arrow{width:28px;height:28px;font-size:1.1rem}
   .sc-arrow.prev{left:6px}
   .sc-arrow.next{right:6px}
@@ -380,20 +380,6 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
                 </picture>
                 <div class="media-tag"><span class="pulse-dot"></span><span>சீர்வரிசை பித்தளை &amp; சில்வர் பாத்திர தொகுப்பு</span></div>
               </div>
-              <div class="sc-slide" role="group" aria-label="Showroom Vessels Aisle">
-                <picture>
-                  <source srcset="assets/showroom_vessels_aisle.webp" type="image/webp">
-                  <img src="assets/showroom_vessels_aisle.jpg" alt="ஸ்ரீ இலக்கியா பாத்திரங்கள் ஷோரூம் உட்புற காட்சி" class="building-img" width="770" height="1024" loading="lazy">
-                </picture>
-                <div class="media-tag"><span class="pulse-dot"></span><span>பாத்திரங்கள் &amp; விளக்குகள் ஷோரூம் பகுதி</span></div>
-              </div>
-              <div class="sc-slide" role="group" aria-label="Showroom Steel Stacks">
-                <picture>
-                  <source srcset="assets/showroom_steel_stacks.webp" type="image/webp">
-                  <img src="assets/showroom_steel_stacks.jpg" alt="ஸ்ரீ இலக்கியா சில்வர் பாத்திரங்கள் &amp; தட்டுகள் அடுக்குகள்" class="building-img" width="1024" height="770" loading="lazy">
-                </picture>
-                <div class="media-tag"><span class="pulse-dot"></span><span>சில்வர் தட்டுகள் &amp; சேமிப்பு பாத்திரங்கள்</span></div>
-              </div>
             </div>
             <button class="sc-arrow prev" id="scPrev" aria-label="Previous slide">‹</button>
             <button class="sc-arrow next" id="scNext" aria-label="Next slide">›</button>
@@ -401,8 +387,6 @@ dialog{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;padding:
               <button class="sc-dot active" aria-label="Slide 1" data-scslide="0"></button>
               <button class="sc-dot" aria-label="Slide 2" data-scslide="1"></button>
               <button class="sc-dot" aria-label="Slide 3" data-scslide="2"></button>
-              <button class="sc-dot" aria-label="Slide 4" data-scslide="3"></button>
-              <button class="sc-dot" aria-label="Slide 5" data-scslide="4"></button>
             </div>
           </div>
         </div>
