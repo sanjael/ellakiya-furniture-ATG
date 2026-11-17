@@ -17,8 +17,9 @@ window.addEventListener('error',function(e){var m=(e&&e.message)?e.message:'';if
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🪔%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/showroom_banner.jpg" fetchpriority="high">
-<link rel="preload" as="image" href="assets/logo_header.png" fetchpriority="high">
+<link rel="preload" as="image" href="assets/showroom_banner.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/showroom_building_clean.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/logo_header.webp" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@500;700;800&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@500;700;800&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"></noscript>
 <style>
@@ -318,7 +319,10 @@ dialog[open]{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;pa
 <body>
 <header><div class="wrap hin">
  <a class="logo" href="#home" aria-label="ஸ்ரீ இலக்கியா மெகா ஷோரூம், அறந்தாங்கி">
-  <img src="assets/logo_header.png" alt="ஸ்ரீ இலக்கியா - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ், அறந்தாங்கி" class="logo-3d-img" width="180" height="46" fetchpriority="high">
+  <picture>
+  <source srcset="assets/logo_header.webp" type="image/webp">
+  <img src="assets/logo_header.png" alt="ஸ்ரீ இலக்கியா - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ், அறந்தாங்கி" class="logo-3d-img" width="180" height="46" fetchpriority="high" loading="eager">
+ </picture>
  </a>
  <nav aria-label="Main">
   <a href="#home">Home</a>
@@ -336,7 +340,10 @@ dialog[open]{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;pa
     <div class="banner-frame" id="bannerSlider">
       <div class="banner-carousel">
         <div class="banner-slide active" role="group" aria-label="Showroom Banner 1">
-          <img src="assets/showroom_banner.jpg" alt="ஸ்ரீ இலக்கியா மெகா ஷோரூம் - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ், அறந்தாங்கி" class="banner-img" width="1024" height="353" fetchpriority="high">
+          <picture>
+            <source srcset="assets/showroom_banner.webp" type="image/webp">
+            <img src="assets/showroom_banner.jpg" alt="ஸ்ரீ இலக்கியா மெகா ஷோரூம் - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ், அறந்தாங்கி" class="banner-img" width="1024" height="353" fetchpriority="high" loading="eager">
+          </picture>
         </div>
         <div class="banner-slide" role="group" aria-label="Showroom Banner 2">
           <img src="assets/showroom_title_banner_padded.jpg" alt="ஸ்ரீ இலக்கியா - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ்" class="banner-img" width="1024" height="353" loading="lazy">
@@ -617,43 +624,43 @@ function getProductImage(name, category, dept, customImg){
   const c = (category || '').toLowerCase();
 
   // 1. Specific Traditional Cookware (Authentic local assets from showroom img2 & img5)
-  if (n.includes('anda') || n.includes('அண்டா') || n.includes('uruli') || n.includes('உருளி')) return 'assets/brass_vessels.jpg';
-  if (n.includes('brass vessel') || (c.includes('traditional') && n.includes('brass')) || n === 'brass vessels' || n.includes('பித்தளை')) return 'assets/brass_vessels.jpg';
-  if (n.includes('bronze vessel') || (c.includes('traditional') && n.includes('bronze')) || n === 'bronze vessels' || n.includes('vengala')) return 'assets/bronze_vessels.jpg';
-  if (n.includes('soapstone') || n.includes('kalchatti')) return 'assets/soapstone_vessels.jpg';
-  if (n.includes('clay pot') || n.includes('manpaanai') || n.includes('earthen pot') || n.includes('earthen')) return 'assets/clay_pots.jpg';
-  if (n.includes('copper')) return 'assets/brass_vessels.jpg';
-  if (n.includes('iron kadai')) return 'assets/traditional_cookware.jpg';
-  if (n.includes('dosa stone')) return 'assets/dosa_tawa.jpg';
-  if (n.includes('traditional cooking pot')) return 'assets/traditional_cookware.jpg';
+  if (n.includes('anda') || n.includes('அண்டா') || n.includes('uruli') || n.includes('உருளி')) return 'assets/brass_vessels.webp';
+  if (n.includes('brass vessel') || (c.includes('traditional') && n.includes('brass')) || n === 'brass vessels' || n.includes('பித்தளை')) return 'assets/brass_vessels.webp';
+  if (n.includes('bronze vessel') || (c.includes('traditional') && n.includes('bronze')) || n === 'bronze vessels' || n.includes('vengala')) return 'assets/bronze_vessels.webp';
+  if (n.includes('soapstone') || n.includes('kalchatti')) return 'assets/soapstone_vessels.webp';
+  if (n.includes('clay pot') || n.includes('manpaanai') || n.includes('earthen pot') || n.includes('earthen')) return 'assets/clay_pots.webp';
+  if (n.includes('copper')) return 'assets/brass_vessels.webp';
+  if (n.includes('iron kadai')) return 'assets/traditional_cookware.webp';
+  if (n.includes('dosa stone')) return 'assets/dosa_tawa.webp';
+  if (n.includes('traditional cooking pot')) return 'assets/traditional_cookware.webp';
 
   // 2. Cleaning & Utility (Dedicated distinct local assets & items)
-  if (n.includes('brush') || n.includes('scrubber') || n.includes('cleaning tool')) return 'assets/cleaning_brushes.jpg';
-  if (n.includes('bucket') || n.includes('வாளி') || (n.includes('mug') && c.includes('clean'))) return 'assets/utility_buckets.jpg';
+  if (n.includes('brush') || n.includes('scrubber') || n.includes('cleaning tool')) return 'assets/cleaning_brushes.webp';
+  if (n.includes('bucket') || n.includes('வாளி') || (n.includes('mug') && c.includes('clean'))) return 'assets/utility_buckets.webp';
   if (n.includes('dustbin')) return 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80';
   if (n.includes('soap dispenser')) return 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('basket')) return 'assets/cleaning_utility.jpg';
+  if (n.includes('basket')) return 'assets/cleaning_utility.webp';
 
   // 3. Cookware & Steaming
-  if (n.includes('cooker') && !n.includes('rice') && !n.includes('commercial')) return 'assets/cooker.jpg';
-  if (n.includes('steamer')) return 'assets/steamers.jpg';
-  if (n.includes('idli')) return 'assets/idli_pot.jpg';
-  if (n.includes('dosa tawa') || n.includes('non-stick tawa') || n.includes('tawa') || n.includes('appam') || n.includes('paniyaram')) return 'assets/dosa_tawa.jpg';
+  if (n.includes('cooker') && !n.includes('rice') && !n.includes('commercial')) return 'assets/cooker.webp';
+  if (n.includes('steamer')) return 'assets/steamers.webp';
+  if (n.includes('idli')) return 'assets/idli_pot.webp';
+  if (n.includes('dosa tawa') || n.includes('non-stick tawa') || n.includes('tawa') || n.includes('appam') || n.includes('paniyaram')) return 'assets/dosa_tawa.webp';
   if (n.includes('frying pan')) return 'https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?auto=format&fit=crop&w=600&q=80';
   if (n.includes('saucepan')) return 'https://images.unsplash.com/photo-1585837575652-267c041d77d4?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('biryani pot') || n.includes('biryani vessel') || n.includes('biryani')) return 'assets/biryani_deg.jpg';
-  if (n.includes('kadai')) return 'assets/traditional_cookware.jpg';
-  if (n.includes('rice cooker')) return 'assets/cooker.jpg';
+  if (n.includes('biryani pot') || n.includes('biryani vessel') || n.includes('biryani')) return 'assets/biryani_deg.webp';
+  if (n.includes('kadai')) return 'assets/traditional_cookware.webp';
+  if (n.includes('rice cooker')) return 'assets/cooker.webp';
 
   // 4. Plates, Thalis & Dining Sets (Each plate type has distinct authentic image)
-  if (n.includes('pooja plate') || (c.includes('pooja') && n.includes('plate'))) return 'assets/pooja_plate.jpg';
-  if (n.includes('compartment plate')) return 'assets/compartment_plate.jpg';
-  if (n.includes('fruit plate')) return 'assets/fruit_plate.jpg';
-  if (n.includes('meal plate')) return 'assets/stainless_steel_plate.jpg';
-  if (n.includes('dinner set')) return 'assets/dinner_set.jpg';
-  if (n.includes('plate') || n.includes('தட்டு') || n.includes('thali')) return 'assets/stainless_steel_plate.jpg';
-  if (n.includes('baking tray')) return 'assets/baking_special.jpg';
-  if (n.includes('serving tray') || n.includes('serving set') || n.includes('catering tray')) return 'assets/serving_tray.jpg';
+  if (n.includes('pooja plate') || (c.includes('pooja') && n.includes('plate'))) return 'assets/pooja_plate.webp';
+  if (n.includes('compartment plate')) return 'assets/compartment_plate.webp';
+  if (n.includes('fruit plate')) return 'assets/fruit_plate.webp';
+  if (n.includes('meal plate')) return 'assets/stainless_steel_plate.webp';
+  if (n.includes('dinner set')) return 'assets/dinner_set.webp';
+  if (n.includes('plate') || n.includes('தட்டு') || n.includes('thali')) return 'assets/stainless_steel_plate.webp';
+  if (n.includes('baking tray')) return 'assets/baking_special.webp';
+  if (n.includes('serving tray') || n.includes('serving set') || n.includes('catering tray')) return 'assets/serving_tray.webp';
   if (n.includes('serving bowl')) return 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80';
   if (n.includes('spoon')) return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=600&q=80';
   if (n.includes('water jug') || n.includes('catering water jug')) return 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80';
@@ -661,117 +668,117 @@ function getProductImage(name, category, dept, customImg){
   // 5. Stainless Steel Dining & Kitchenware
   if (n.includes('tumbler') || n.includes('cup') || n.includes('glass')) return 'https://images.unsplash.com/photo-1577937927133-66ef06acdf18?auto=format&fit=crop&w=600&q=80';
   if (n.includes('bowl')) return 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('water pot') || n.includes('milk vessel')) return 'assets/showroom_steel_stacks.jpg';
+  if (n.includes('water pot') || n.includes('milk vessel')) return 'assets/showroom_steel_stacks.webp';
   if (n.includes('carrier') || n.includes('tiffin')) return 'https://images.unsplash.com/photo-1594998893017-36147cbcae05?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('steel container') || (c.includes('steel') && n.includes('container')) || n.includes('டப்பா')) return 'assets/storage_organization.jpg';
-  if (n === 'pots' || n === 'pot') return 'assets/pots.jpg';
-  if (n === 'vessels' || n === 'vessel') return 'assets/showroom_steel_stacks.jpg';
+  if (n.includes('steel container') || (c.includes('steel') && n.includes('container')) || n.includes('டப்பா')) return 'assets/storage_organization.webp';
+  if (n === 'pots' || n === 'pot') return 'assets/pots.webp';
+  if (n === 'vessels' || n === 'vessel') return 'assets/showroom_steel_stacks.webp';
 
   // 6. Tea & Coffee
-  if (n.includes('coffee filter') || n.includes('filter coffee') || n.includes('tea strainer') || n.includes('strainer')) return 'assets/tea_coffee.jpg';
-  if (n.includes('davara') || n.includes('milk boiler') || n.includes('milk can')) return 'assets/tea_coffee.jpg';
-  if (n.includes('kettle')) return 'assets/electric_kettle.jpg';
-  if (n.includes('flask') || n.includes('vacuum bottle')) return 'assets/flasks.jpg';
+  if (n.includes('coffee filter') || n.includes('filter coffee') || n.includes('tea strainer') || n.includes('strainer')) return 'assets/tea_coffee.webp';
+  if (n.includes('davara') || n.includes('milk boiler') || n.includes('milk can')) return 'assets/tea_coffee.webp';
+  if (n.includes('kettle')) return 'assets/electric_kettle.webp';
+  if (n.includes('flask') || n.includes('vacuum bottle')) return 'assets/flasks.webp';
 
   // 7. Baking & Special Cooking
-  if (n.includes('cake mould') || n.includes('puttu maker') || n.includes('appam cookware')) return 'assets/baking_special.jpg';
-  if (n.includes('murukku press') || n.includes('idiyappam maker') || n.includes('sevai maker')) return 'assets/baking_special.jpg';
+  if (n.includes('cake mould') || n.includes('puttu maker') || n.includes('appam cookware')) return 'assets/baking_special.webp';
+  if (n.includes('murukku press') || n.includes('idiyappam maker') || n.includes('sevai maker')) return 'assets/baking_special.webp';
 
   // 8. Storage
-  if (n.includes('oil dispenser')) return 'assets/oil_dispenser.jpg';
-  if (n.includes('rice drum') || n.includes('hot box') || n.includes('casserole')) return 'assets/storage_organization.jpg';
-  if (n.includes('dal container') || n.includes('airtight container') || n.includes('storage jar')) return 'assets/storage_organization.jpg';
-  if (n.includes('spice box')) return 'assets/storage_organization.jpg';
-  if (n.includes('lunch box')) return 'assets/kids_travel.jpg';
+  if (n.includes('oil dispenser')) return 'assets/oil_dispenser.webp';
+  if (n.includes('rice drum') || n.includes('hot box') || n.includes('casserole')) return 'assets/storage_organization.webp';
+  if (n.includes('dal container') || n.includes('airtight container') || n.includes('storage jar')) return 'assets/storage_organization.webp';
+  if (n.includes('spice box')) return 'assets/storage_organization.webp';
+  if (n.includes('lunch box')) return 'assets/kids_travel.webp';
   if (n.includes('bottle')) return 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('pickle jar')) return 'assets/clay_pots.jpg';
+  if (n.includes('pickle jar')) return 'assets/clay_pots.webp';
 
   // 9. Hotel & Catering
-  if (n.includes('large biryani') || n.includes('biryani deg')) return 'assets/biryani_deg.jpg';
-  if (n.includes('commercial cooker') || n.includes('bulk cooking')) return 'assets/hotel_catering.jpg';
-  if (n.includes('large ladle')) return 'assets/ladles.jpg';
-  if (n.includes('buffet warmer') || n.includes('catering')) return 'assets/hotel_catering.jpg';
+  if (n.includes('large biryani') || n.includes('biryani deg')) return 'assets/biryani_deg.webp';
+  if (n.includes('commercial cooker') || n.includes('bulk cooking')) return 'assets/hotel_catering.webp';
+  if (n.includes('large ladle')) return 'assets/ladles.webp';
+  if (n.includes('buffet warmer') || n.includes('catering')) return 'assets/hotel_catering.webp';
 
   // 10. Pooja & Festival
-  if (n.includes('kuthu vilakku') || n.includes('traditional lamp') || n.includes('brass lamp')) return 'assets/kuthu_vilakku.jpg';
-  if (n.includes('bell') || n.includes('incense holder') || n.includes('kalasam')) return 'assets/pooja_festival.jpg';
-  if (n.includes('panchapatram')) return 'assets/pooja_plate.jpg';
+  if (n.includes('kuthu vilakku') || n.includes('traditional lamp') || n.includes('brass lamp')) return 'assets/kuthu_vilakku.webp';
+  if (n.includes('bell') || n.includes('incense holder') || n.includes('kalasam')) return 'assets/pooja_festival.webp';
+  if (n.includes('panchapatram')) return 'assets/pooja_plate.webp';
 
   // 11. Kitchen Accessories
   if (n.includes('knife') || n.includes('knives')) return 'https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('cutting board')) return 'assets/cutting_board.jpg';
-  if (n.includes('ladle') || n.includes('spatula') || n.includes('peeler') || n.includes('tong')) return 'assets/ladles.jpg';
-  if (n.includes('rack') || n.includes('dish drainer') || n.includes('sink accessory')) return 'assets/cleaning_utility.jpg';
+  if (n.includes('cutting board')) return 'assets/cutting_board.webp';
+  if (n.includes('ladle') || n.includes('spatula') || n.includes('peeler') || n.includes('tong')) return 'assets/ladles.webp';
+  if (n.includes('rack') || n.includes('dish drainer') || n.includes('sink accessory')) return 'assets/cleaning_utility.webp';
 
   // 12. Kids & Travel
-  if (n.includes('school lunch box') || n.includes('lunch bag') || n.includes('food jar')) return 'assets/kids_travel.jpg';
-  if (n.includes('travel flask')) return 'assets/flasks.jpg';
-  if (n.includes('cartoon bottle')) return 'assets/kids_travel.jpg';
+  if (n.includes('school lunch box') || n.includes('lunch bag') || n.includes('food jar')) return 'assets/kids_travel.webp';
+  if (n.includes('travel flask')) return 'assets/flasks.webp';
+  if (n.includes('cartoon bottle')) return 'assets/kids_travel.webp';
 
   // 13. Wedding & Gifts & Vessels Crowd
-  if (n.includes('vessel crowd') || n.includes('vessels crowd') || n.includes('crowd')) return 'assets/vessel_crowd.jpg';
-  if (n.includes('seervarisai') || n.includes('wedding gift') || n.includes('wedding dinner set')) return 'assets/vessel_crowd.jpg';
-  if (n.includes('housewarming') || n.includes('gift')) return 'assets/dinner_set.jpg';
+  if (n.includes('vessel crowd') || n.includes('vessels crowd') || n.includes('crowd')) return 'assets/vessel_crowd.webp';
+  if (n.includes('seervarisai') || n.includes('wedding gift') || n.includes('wedding dinner set')) return 'assets/vessel_crowd.webp';
+  if (n.includes('housewarming') || n.includes('gift')) return 'assets/dinner_set.webp';
 
   // 14. Furniture (Authentic Iron Bureau, Wooden Bureau & Dressing Table)
-  if (n.includes('iron bureau') || n.includes('steel almirah') || n.includes('iron biro') || n.includes('steel bureau') || n.includes('almirah') || n.includes('irom broll') || n.includes('iron broll') || n.includes('steel almirahs')) return 'assets/iron_bureau.jpg';
-  if (n.includes('wooden bureau') || n.includes('wooden wardrobe') || n.includes('wooden biro') || n.includes('wardrobe') || n.includes('wooden broll') || n.includes('woonden') || n.includes('bureau') || n.includes('biro') || n.includes('broll')) return 'assets/wooden_bureau.jpg';
-  if (n.includes('folding cot')) return 'assets/folding_cot.jpg';
-  if (n.includes('cot') || n.includes('bed')) return 'assets/teak_cot.jpg';
+  if (n.includes('iron bureau') || n.includes('steel almirah') || n.includes('iron biro') || n.includes('steel bureau') || n.includes('almirah') || n.includes('irom broll') || n.includes('iron broll') || n.includes('steel almirahs')) return 'assets/iron_bureau.webp';
+  if (n.includes('wooden bureau') || n.includes('wooden wardrobe') || n.includes('wooden biro') || n.includes('wardrobe') || n.includes('wooden broll') || n.includes('woonden') || n.includes('bureau') || n.includes('biro') || n.includes('broll')) return 'assets/wooden_bureau.webp';
+  if (n.includes('folding cot')) return 'assets/folding_cot.webp';
+  if (n.includes('cot') || n.includes('bed')) return 'assets/teak_cot.webp';
   if (n.includes('sofa')) return 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('dining table')) return 'assets/dining_tables.jpg';
-  if (n.includes('dining chair')) return 'assets/dining_chairs.jpg';
-  if (n.includes('plastic chair')) return 'assets/plastic_chairs.jpg';
-  if (n.includes('office chair')) return 'assets/office_chair.jpg';
+  if (n.includes('dining table')) return 'assets/dining_tables.webp';
+  if (n.includes('dining chair')) return 'assets/dining_chairs.webp';
+  if (n.includes('plastic chair')) return 'assets/plastic_chairs.webp';
+  if (n.includes('office chair')) return 'assets/office_chair.webp';
   if (n.includes('tea table')) return 'https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=600&q=80';
   if (n.includes('tv stand')) return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('dressing table') || n.includes('dressing') || n.includes('vanity')) return 'assets/dressing_table.jpg';
+  if (n.includes('dressing table') || n.includes('dressing') || n.includes('vanity')) return 'assets/dressing_table.webp';
   if (n.includes('study table')) return 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('mattress')) return 'assets/mattress.jpg';
-  if (n.includes('shoe rack')) return 'assets/iron_bureau.jpg';
-  if (n.includes('pooja stand')) return 'assets/pooja_festival.jpg';
-  if (n.includes('kids furniture')) return 'https://images.unsplash.com/photo-1580481077195-c3a821a58875?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('mattress')) return 'assets/mattress.webp';
+  if (n.includes('shoe rack')) return 'assets/iron_bureau.webp';
+  if (n.includes('pooja stand')) return 'assets/pooja_festival.webp';
+  if (n.includes('kids furniture')) return 'assets/plastic_chairs.webp';
 
   // 15. Appliances & Electronics (Authentic Humanized Realistic Photos: TV, AC, Washing Machine, Fridge)
-  if (n.includes('mixer grinder') || n.includes('mixie') || n.includes('blender') || n.includes('chopper')) return 'assets/mixer_grinder.jpg';
-  if (n.includes('wet grinder') || n.includes('grinder')) return 'assets/wet_grinder.jpg';
-  if (n.includes('toaster')) return 'assets/toaster.jpg';
-  if (n.includes('water heater') || n.includes('geyser')) return 'assets/water_heater.jpg';
-  if ((n === 'irons' || n.includes('iron box') || n === 'iron') && !n.includes('iron kadai') && !n.includes('iron bureau') && !n.includes('iron biro') && !n.includes('cast iron')) return 'assets/iron_box.jpg';
-  if (n.includes('air conditioner') || n.includes('air-conditioner') || n === 'ac' || n.includes('(ac)') || n.includes('split ac') || n.includes('inverter ac')) return 'assets/air_conditioner.jpg';
-  if (n.includes('pedestal fan')) return 'assets/pedestal_fan.jpg';
-  if (n.includes('table fan') || n.includes('desk fan')) return 'assets/table_fan.jpg';
-  if (n.includes('ceiling fan')) return 'https://images.unsplash.com/photo-1618941716939-553df3c6c278?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('cooler') || n.includes('air cooler')) return 'assets/air_cooler.jpg';
-  if (n.includes('fan')) return 'assets/pedestal_fan.jpg';
-  if (n.includes('refrigerator') || n.includes('fridge') || n.includes('frezzge') || n.includes('freezer')) return 'assets/refrigerator_fridge.jpg';
-  if (n.includes('washing machine') || n.includes('washer')) return 'assets/washing_machine.jpg';
-  if (n.includes('microwave') || n.includes('oven')) return 'assets/microwave_oven.jpg';
-  if (n.includes('induction')) return 'assets/induction_stove.jpg';
-  if (n.includes('gas stove') || n.includes('cooktop') || n.includes('stove')) return 'assets/gas_stove.jpg';
-  if (n.includes('television') || n.includes('tv') || n.includes('smart tv') || n.includes('led tv')) return 'assets/television_smart.jpg';
-  if (n.includes('juicer')) return 'assets/juicer_machine.jpg';
-  if (n.includes('kettle')) return 'assets/electric_kettle.jpg';
-  if (n.includes('home theatre') || n.includes('soundbar')) return 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('mobile accessory') || n.includes('mobile accessories') || n.includes('mobile')) return 'assets/mobile_accessories.jpg';
-  if (n.includes('lighting')) return 'assets/home_lighting.jpg';
+  if (n.includes('mixer grinder') || n.includes('mixie') || n.includes('blender') || n.includes('chopper')) return 'assets/mixer_grinder.webp';
+  if (n.includes('wet grinder') || n.includes('grinder')) return 'assets/wet_grinder.webp';
+  if (n.includes('toaster')) return 'assets/toaster.webp';
+  if (n.includes('water heater') || n.includes('geyser')) return 'assets/water_heater.webp';
+  if ((n === 'irons' || n.includes('iron box') || n === 'iron') && !n.includes('iron kadai') && !n.includes('iron bureau') && !n.includes('iron biro') && !n.includes('cast iron')) return 'assets/iron_box.webp';
+  if (n.includes('air conditioner') || n.includes('air-conditioner') || n === 'ac' || n.includes('(ac)') || n.includes('split ac') || n.includes('inverter ac')) return 'assets/air_conditioner.webp';
+  if (n.includes('pedestal fan')) return 'assets/pedestal_fan.webp';
+  if (n.includes('table fan') || n.includes('desk fan')) return 'assets/table_fan.webp';
+  if (n.includes('ceiling fan')) return 'assets/pedestal_fan.webp';
+  if (n.includes('cooler') || n.includes('air cooler')) return 'assets/air_cooler.webp';
+  if (n.includes('fan')) return 'assets/pedestal_fan.webp';
+  if (n.includes('refrigerator') || n.includes('fridge') || n.includes('frezzge') || n.includes('freezer')) return 'assets/refrigerator_fridge.webp';
+  if (n.includes('washing machine') || n.includes('washer')) return 'assets/washing_machine.webp';
+  if (n.includes('microwave') || n.includes('oven')) return 'assets/microwave_oven.webp';
+  if (n.includes('induction')) return 'assets/induction_stove.webp';
+  if (n.includes('gas stove') || n.includes('cooktop') || n.includes('stove')) return 'assets/gas_stove.webp';
+  if (n.includes('television') || n.includes('tv') || n.includes('smart tv') || n.includes('led tv')) return 'assets/television_smart.webp';
+  if (n.includes('juicer')) return 'assets/juicer_machine.webp';
+  if (n.includes('kettle')) return 'assets/electric_kettle.webp';
+  if (n.includes('home theatre') || n.includes('soundbar')) return 'assets/television_smart.webp';
+  if (n.includes('mobile accessory') || n.includes('mobile accessories') || n.includes('mobile')) return 'assets/mobile_accessories.webp';
+  if (n.includes('lighting')) return 'assets/home_lighting.webp';
 
   // Category Level Fallbacks
-  if (c.includes('traditional')) return 'assets/traditional_cookware.jpg';
-  if (c.includes('dining')) return 'assets/dining_serving.jpg';
-  if (c.includes('tea') || c.includes('coffee')) return 'assets/tea_coffee.jpg';
-  if (c.includes('baking') || c.includes('special')) return 'assets/baking_special.jpg';
-  if (c.includes('storage')) return 'assets/storage_organization.jpg';
-  if (c.includes('hotel') || c.includes('catering')) return 'assets/hotel_catering.jpg';
-  if (c.includes('pooja')) return 'assets/pooja_festival.jpg';
-  if (c.includes('clean') || c.includes('utility')) return 'assets/cleaning_utility.jpg';
-  if (c.includes('kid') || c.includes('travel')) return 'assets/kids_travel.jpg';
-  if (c.includes('steel')) return 'assets/stainless_steel.jpg';
+  if (c.includes('traditional')) return 'assets/traditional_cookware.webp';
+  if (c.includes('dining')) return 'assets/dining_serving.webp';
+  if (c.includes('tea') || c.includes('coffee')) return 'assets/tea_coffee.webp';
+  if (c.includes('baking') || c.includes('special')) return 'assets/baking_special.webp';
+  if (c.includes('storage')) return 'assets/storage_organization.webp';
+  if (c.includes('hotel') || c.includes('catering')) return 'assets/hotel_catering.webp';
+  if (c.includes('pooja')) return 'assets/pooja_festival.webp';
+  if (c.includes('clean') || c.includes('utility')) return 'assets/cleaning_utility.webp';
+  if (c.includes('kid') || c.includes('travel')) return 'assets/kids_travel.webp';
+  if (c.includes('steel')) return 'assets/stainless_steel.webp';
 
-  if (dept === 'furniture') return 'assets/teak_cot.jpg';
-  if (dept === 'appliances') return 'assets/mixer_grinder.jpg';
+  if (dept === 'furniture') return 'assets/teak_cot.webp';
+  if (dept === 'appliances') return 'assets/mixer_grinder.webp';
 
-  return 'assets/cooker.jpg';
+  return 'assets/cooker.webp';
 }
 
 function card(p){
@@ -781,7 +788,7 @@ function card(p){
   const customBadge = p.isCustom ? `<span style="position:absolute;top:8px;right:8px;background:#006B2D;color:#fff;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,0.25);z-index:2">NEW</span>` : '';
   return `<article class="card">
     <button type="button" class="thumb" data-open="${p.id}" aria-label="View details: ${esc(p.name)}">
-      <img src="${imgUrl}" alt="${esc(p.name)}" loading="lazy" decoding="async" width="300" height="225" onerror="this.onerror=null;this.src='${fallbackUrl}'" class="card-img">
+      <img src="${imgUrl}" alt="${esc(p.name)}" loading="lazy" decoding="async" width="300" height="225" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.src.replace(/\.webp$/i,'.jpg')}else{this.onerror=null;this.src='${fallbackUrl}'}" class="card-img">
       <span class="card-cat-badge" style="background:${d.color}">${esc(p.category)}</span>
       ${customBadge}
     </button>
@@ -1102,8 +1109,8 @@ const pd=$("#pd");
 document.addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(!b)return;const p=PRODUCTS.find(x=>x.id===b.dataset.open);if(!p)return;
  const imgUrl=getProductImage(p.name, p.category, p.dept, p.image);
  const d=DEPTS[p.dept] || { color: '#006B2D', en: p.dept };
- const fallbackUrl = d.color === '#006B2D' ? 'assets/stainless_steel.jpg' : 'assets/cooker.jpg';
- $("#pdt").textContent=p.name;$("#pdb").innerHTML=`<div class="modal-img-wrap"><img src="${imgUrl}" alt="${esc(p.name)}" onerror="this.onerror=null;this.src='${fallbackUrl}'" class="modal-img"></div><p><strong>${esc(d.en)}</strong> · ${esc(p.category)}</p><p style="margin:.6rem 0">${esc(p.desc)}</p><p><strong>Availability:</strong> ${esc(p.status)}</p><p><strong>Brand:</strong> ${p.brand?esc(p.brand):"All Leading Brands Available"}</p><p style="margin-top:1rem"><a class="btn b-wa" target="_blank" rel="noopener" href="${enq(p)}">Enquire on WhatsApp</a></p>`;pd.showModal()});
+ const fallbackUrl = d.color === '#006B2D' ? 'assets/stainless_steel.webp' : 'assets/cooker.webp';
+ $("#pdt").textContent=p.name;$("#pdb").innerHTML=`<div class="modal-img-wrap"><img src="${imgUrl}" alt="${esc(p.name)}" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.src.replace(/\\.webp$/i,'.jpg')}else{this.onerror=null;this.src='${fallbackUrl}'}" class="modal-img"></div><p><strong>${esc(d.en)}</strong> · ${esc(p.category)}</p><p style="margin:.6rem 0">${esc(p.desc)}</p><p><strong>Availability:</strong> ${esc(p.status)}</p><p><strong>Brand:</strong> ${p.brand?esc(p.brand):"All Leading Brands Available"}</p><p style="margin-top:1rem"><a class="btn b-wa" target="_blank" rel="noopener" href="${enq(p)}">Enquire on WhatsApp</a></p>`;pd.showModal()});
 $("#pdx").onclick=()=>pd.close();pd.addEventListener("click",e=>{if(e.target===pd)pd.close()});
 $("#pv").onclick=()=>{$("#pdt").textContent="Privacy policy";$("#pdb").innerHTML=`<p>This site is a product catalogue. It has no accounts or payments.</p><h3>What we collect</h3><p>The enquiry form does not send data to our servers. It opens WhatsApp with your message so you can send it yourself. Your name, number and message reach us only when you send that WhatsApp message.</p><h3>Cookies and tracking</h3><p>This site sets no cookies and runs no analytics. Fonts load from Google Fonts.</p><h3>Contact</h3><p>${esc(CONFIG.phoneDisplay)}, ${esc(CONFIG.address)}</p><p class="note">Owner: review this text with a legal adviser before launch.</p>`;pd.showModal()};
 /* Automatic 2-Image Showroom Banner Slider (Sri Ilakkiya) */
