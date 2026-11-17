@@ -17,11 +17,9 @@ window.addEventListener('error',function(e){var m=(e&&e.message)?e.message:'';if
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🪔%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/showroom_banner.webp" type="image/webp" fetchpriority="high">
 <link rel="preload" as="image" href="assets/showroom_building_clean.webp" type="image/webp" fetchpriority="high">
-<link rel="preload" as="image" href="assets/logo_header.webp" type="image/webp" fetchpriority="high">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@500;700;800&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@500;700;800&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@700&family=Plus+Jakarta+Sans:wght@600;700&display=swap"></noscript>
 <style>
 :root{--g:#00843D;--g-dark:#00602B;--g-gloss:#035422;--g-light:#E8F7EE;--y:#FFD200;--y-warm:#F59E0B;--y-light:#FFFBEA;--m:#C8102E;--m-dark:#9B111E;--c:#F4F9F5;--b:#0E2917;--w:#fff;--mu:#476352;--ln:#CFE4D7;--blue:#0284C7;--safe:env(safe-area-inset-bottom,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]){color-scheme:light}}
@@ -228,7 +226,8 @@ dialog[open]{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;pa
 .banner-arrow.prev{left:12px}
 .banner-arrow.next{right:12px}
 .banner-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;background:rgba(0,0,0,0.45);padding:4px 10px;border-radius:20px;backdrop-filter:blur(4px)}
-.b-dot{width:20px;height:6px;border-radius:3px;background:rgba(255,255,255,0.5);border:none;cursor:pointer;transition:all .3s ease;padding:0}
+.b-dot{position:relative;width:20px;height:6px;border-radius:3px;background:rgba(255,255,255,0.5);border:none;cursor:pointer;transition:all .3s ease;padding:0}
+.b-dot::after{content:'';position:absolute;top:-12px;bottom:-12px;left:-6px;right:-6px}
 .b-dot.active{width:32px;background:#FFD200;box-shadow:0 0 8px rgba(255,210,0,0.8)}
 
 @media(max-width:640px){
@@ -263,7 +262,8 @@ dialog[open]{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;pa
 .sc-arrow.prev{left:10px}
 .sc-arrow.next{right:10px}
 .sc-dots{position:absolute;bottom:42px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;background:rgba(0,0,0,0.55);padding:4px 8px;border-radius:20px;backdrop-filter:blur(4px)}
-.sc-dot{width:18px;height:5px;border-radius:3px;background:rgba(255,255,255,0.5);border:none;cursor:pointer;transition:all .3s ease;padding:0}
+.sc-dot{position:relative;width:18px;height:5px;border-radius:3px;background:rgba(255,255,255,0.5);border:none;cursor:pointer;transition:all .3s ease;padding:0}
+.sc-dot::after{content:'';position:absolute;top:-12px;bottom:-12px;left:-6px;right:-6px}
 .sc-dot.active{width:28px;background:#FFD200;box-shadow:0 0 6px rgba(255,210,0,0.8)}
 .media-tag{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(4,23,12,0.88);backdrop-filter:blur(6px);color:#fff;padding:8px 12px;border-radius:10px;font-size:0.82rem;font-weight:700;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,210,0,0.4);z-index:9}
 .pulse-dot{width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 0 0 rgba(16,185,129,0.7);animation:pulseDot 2s infinite;flex-shrink:0}
@@ -342,18 +342,18 @@ dialog[open]{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;pa
         <div class="banner-slide active" role="group" aria-label="Showroom Banner 1">
           <picture>
             <source srcset="assets/showroom_banner.webp" type="image/webp">
-            <img src="assets/showroom_banner.jpg" alt="ஸ்ரீ இலக்கியா மெகா ஷோரூம் - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ், அறந்தாங்கி" class="banner-img" width="1024" height="353" fetchpriority="high" loading="eager">
+            <img src="assets/showroom_banner.jpg" alt="ஸ்ரீ இலக்கியா மெகா ஷோரூம் - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ், அறந்தாங்கி" class="banner-img" width="1024" height="353" loading="eager">
           </picture>
         </div>
         <div class="banner-slide" role="group" aria-label="Showroom Banner 2">
-          <img src="assets/showroom_title_banner_padded.jpg" alt="ஸ்ரீ இலக்கியா - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ்" class="banner-img" width="1024" height="353" loading="lazy">
+          <picture><source data-srcset="assets/showroom_title_banner_padded.webp" type="image/webp"><img data-src="assets/showroom_title_banner_padded.webp" alt="ஸ்ரீ இலக்கியா - பாத்திரம், பர்னிச்சர் &amp; எலக்ட்ரானிக்ஸ்" class="banner-img" width="800" height="276" loading="lazy"></picture>
         </div>
       </div>
       <button class="banner-arrow prev" id="bannerPrev" aria-label="Previous banner">‹</button>
       <button class="banner-arrow next" id="bannerNext" aria-label="Next banner">›</button>
       <div class="banner-dots" id="bannerDots" role="tablist" aria-label="Banner selection">
-        <button class="b-dot active" aria-label="Banner 1" data-bslide="0"></button>
-        <button class="b-dot" aria-label="Banner 2" data-bslide="1"></button>
+        <button class="b-dot active" role="tab" aria-label="Banner 1" data-bslide="0"></button>
+        <button class="b-dot" role="tab" aria-label="Banner 2" data-bslide="1"></button>
       </div>
     </div>
   </div>
@@ -375,30 +375,30 @@ dialog[open]{border:0;border-radius:12px;max-width:min(680px,94vw);width:100%;pa
               </div>
               <div class="sc-slide" role="group" aria-label="Showroom Building Offer View">
                 <picture>
-                  <source srcset="assets/showroom_building_offer.webp" type="image/webp">
-                  <img src="assets/showroom_building_offer.jpg" alt="ஸ்ரீ இலக்கியா புதிய ஷோரூம் கட்டிடம் &amp; ₹1,35,000 கல்யாண சீர்வரிசை ஆஃபர்" class="building-img" width="867" height="1024" loading="lazy">
+                  <source data-srcset="assets/showroom_building_offer.webp" type="image/webp">
+                  <img data-src="assets/showroom_building_offer.webp" alt="ஸ்ரீ இலக்கியா புதிய ஷோரூம் கட்டிடம் &amp; ₹1,35,000 கல்யாண சீர்வரிசை ஆஃபர்" class="building-img" width="600" height="750" loading="lazy">
                 </picture>
               </div>
               <div class="sc-slide" role="group" aria-label="Showroom Wedding Package">
                 <picture>
-                  <source srcset="assets/showroom_combo_setup.webp" type="image/webp">
-                  <img src="assets/showroom_combo_setup.jpg" alt="ஸ்ரீ இலக்கியா நேரடி ஷோரூம் ₹1,35,000 கல்யாண சீர்வரிசை முழு தொகுப்பு" class="building-img" width="1024" height="770" loading="lazy">
+                  <source data-srcset="assets/showroom_combo_setup.webp" type="image/webp">
+                  <img data-src="assets/showroom_combo_setup.webp" alt="ஸ்ரீ இலக்கியா நேரடி ஷோரூம் ₹1,35,000 கல்யாண சீர்வரிசை முழு தொகுப்பு" class="building-img" width="700" height="525" loading="lazy">
                 </picture>
               </div>
               <div class="sc-slide" role="group" aria-label="Showroom Vessels Display">
                 <picture>
-                  <source srcset="assets/showroom_combo_vessels.webp" type="image/webp">
-                  <img src="assets/showroom_combo_vessels.jpg" alt="ஸ்ரீ இலக்கியா சீர்வரிசை பாத்திரங்கள் &amp; கட்டில் அலங்கார காட்சி" class="building-img" width="770" height="1024" loading="lazy">
+                  <source data-srcset="assets/showroom_combo_vessels.webp" type="image/webp">
+                  <img data-src="assets/showroom_combo_vessels.webp" alt="ஸ்ரீ இலக்கியா சீர்வரிசை பாத்திரங்கள் &amp; கட்டில் அலங்கார காட்சி" class="building-img" width="600" height="750" loading="lazy">
                 </picture>
               </div>
             </div>
             <button class="sc-arrow prev" id="scPrev" aria-label="Previous slide">‹</button>
             <button class="sc-arrow next" id="scNext" aria-label="Next slide">›</button>
-            <div class="sc-dots" id="scDots">
-              <button class="sc-dot active" aria-label="Slide 1" data-scslide="0"></button>
-              <button class="sc-dot" aria-label="Slide 2" data-scslide="1"></button>
-              <button class="sc-dot" aria-label="Slide 3" data-scslide="2"></button>
-              <button class="sc-dot" aria-label="Slide 4" data-scslide="3"></button>
+            <div class="sc-dots" id="scDots" role="tablist" aria-label="Showcase slides">
+              <button class="sc-dot active" role="tab" aria-label="Slide 1" data-scslide="0"></button>
+              <button class="sc-dot" role="tab" aria-label="Slide 2" data-scslide="1"></button>
+              <button class="sc-dot" role="tab" aria-label="Slide 3" data-scslide="2"></button>
+              <button class="sc-dot" role="tab" aria-label="Slide 4" data-scslide="3"></button>
             </div>
           </div>
         </div>
@@ -787,7 +787,7 @@ function card(p){
   const fallbackUrl = d.color === '#006B2D' ? 'assets/stainless_steel.jpg' : d.color === '#542A20' ? 'assets/teak_cot.jpg' : d.color === '#8B1E24' ? 'assets/mixer_grinder.jpg' : 'assets/cooker.jpg';
   const customBadge = p.isCustom ? `<span style="position:absolute;top:8px;right:8px;background:#006B2D;color:#fff;font-size:0.65rem;font-weight:800;padding:2px 7px;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,0.25);z-index:2">NEW</span>` : '';
   return `<article class="card">
-    <button type="button" class="thumb" data-open="${p.id}" aria-label="View details: ${esc(p.name)}">
+    <button type="button" class="thumb" data-open="${p.id}" aria-label="${esc(p.name)}">
       <img src="${imgUrl}" alt="${esc(p.name)}" loading="lazy" decoding="async" width="300" height="225" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=this.src.replace(/\.webp$/i,'.jpg')}else{this.onerror=null;this.src='${fallbackUrl}'}" class="card-img">
       <span class="card-cat-badge" style="background:${d.color}">${esc(p.category)}</span>
       ${customBadge}
@@ -796,7 +796,7 @@ function card(p){
       <small>${esc(p.category)}</small>
       <h3>${esc(p.name)}</h3>
       <div class="row">
-        <button type="button" class="btn b-o" data-open="${p.id}" aria-label="Details of ${esc(p.name)}">Details</button>
+        <button type="button" class="btn b-o" data-open="${p.id}" aria-label="Details - ${esc(p.name)}">Details</button>
         <a class="btn b-wa" target="_blank" rel="noopener" href="${enq(p)}" aria-label="Enquire about ${esc(p.name)} on WhatsApp">Enquire</a>
       </div>
     </div>
@@ -877,7 +877,7 @@ const BRANDS_DATA = [
 
 if($("#brandgrid")){
   $("#brandgrid").innerHTML = BRANDS_DATA.map(b => `
-    <article class="brand-card" data-brand="${esc(b.filterKey || b.name)}" role="button" tabindex="0" aria-label="Browse ${esc(b.name)} products">
+    <div class="brand-card" data-brand="${esc(b.filterKey || b.name)}" role="button" tabindex="0" aria-label="${esc(b.name)}">
       <div class="brand-logo-wrap">${b.logoSvg}</div>
       <div class="brand-info-row">
         <div class="brand-meta">
@@ -889,7 +889,7 @@ if($("#brandgrid")){
         </div>
         <span class="brand-badge">${esc(b.count)}</span>
       </div>
-    </article>
+    </div>
   `).join("");
 }
 
@@ -1200,6 +1200,19 @@ $("#pv").onclick=()=>{$("#pdt").textContent="Privacy policy";$("#pdb").innerHTML
 
 /* Automatic 5-Image Showcase Carousel (Sri Ilakkiya Mega Offer & Showroom Views) */
 (function initShowcaseCarousel() {
+  // Load deferred slides right after initial paint when idle
+  function loadDeferredSlides() {
+    document.querySelectorAll('[data-srcset], [data-src]').forEach(el => {
+      if (el.dataset.srcset) { el.srcset = el.dataset.srcset; el.removeAttribute('data-srcset'); }
+      if (el.dataset.src) { el.src = el.dataset.src; el.removeAttribute('data-src'); }
+    });
+  }
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadDeferredSlides, { timeout: 1000 });
+  } else {
+    setTimeout(loadDeferredSlides, 600);
+  }
+
   const slides = document.querySelectorAll('.sc-slide');
   const dots = document.querySelectorAll('.sc-dot');
   if (!slides || slides.length < 2) return;

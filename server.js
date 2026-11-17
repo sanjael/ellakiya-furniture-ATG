@@ -82,11 +82,29 @@ const server = http.createServer(async (req, res) => {
   // ==========================================
   if (parsedUrl === '/api/data' && req.method === 'GET') {
     const data = getStoreData();
-    res.writeHead(200, {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Cache-Control': 'no-cache, no-store, must-revalidate'
-    });
-    res.end(JSON.stringify(data));
+    const jsonStr = JSON.stringify(data);
+    const acceptEncoding = req.headers['accept-encoding'] || '';
+    if (acceptEncoding.includes('gzip')) {
+      zlib.gzip(jsonStr, (err, gzipped) => {
+        if (!err) {
+          res.writeHead(200, {
+            'Content-Type': 'application/json; charset=utf-8',
+            'Content-Encoding': 'gzip',
+            'Cache-Control': 'no-cache, no-store, must-revalidate'
+          });
+          res.end(gzipped);
+        } else {
+          res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(jsonStr);
+        }
+      });
+    } else {
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      });
+      res.end(jsonStr);
+    }
     return;
   }
 
