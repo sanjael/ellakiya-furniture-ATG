@@ -571,7 +571,7 @@ vessels:{en:"Vessels & Kitchenware",ta:"பாத்திரங்கள்",co
 "Traditional cookware":["Brass vessels","Brass Anda (அண்டா)","Brass Uruli (உருளி)","Clay pots","Earthen pots","Soapstone vessels","Iron kadai","Dosa stones","Copper vessels","Bronze vessels","Traditional cooking pots"],
 "Cookware":["Pressure cookers","Non-stick tawas","Dosa tawas","Frying pans","Kadai","Saucepans","Biryani pots","Appam pans","Paniyaram pans","Steamers","Rice cookers"],
 "Dining & serving":["Dinner sets","Meal plates","Compartment plates","Serving trays","Serving bowls","Spoons","Water jugs","Fruit plates","Serving sets"],
-"Tea & coffee":["Coffee filters","Davara sets","Kettles","Milk boilers","Tea strainers","Flasks","Vacuum bottles","Milk cans"],
+"Tea & coffee":["Coffee filters","Davara sets","Kettles","Milk boilers","Tea strainers","Flasks","Vacuum bottles"],
 "Baking & special cooking":["Cake moulds","Baking trays","Idiyappam makers","Murukku presses","Puttu makers","Sevai makers","Appam cookware"],
 "Storage":["Rice drums","Dal containers","Spice boxes","Airtight containers","Lunch boxes","Bottles","Oil dispensers","Pickle jars","Hot boxes","Casseroles","Storage jars"],
 "Hotel & catering":["Commercial cookers","Large biryani vessels","Bulk cooking pots","Large ladles","Buffet warmers","Catering trays","Catering water jugs"],
@@ -668,7 +668,7 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('dosa tawa') || n.includes('non-stick tawa') || n.includes('tawa') || n.includes('appam') || n.includes('paniyaram')) return 'assets/dosa_tawa.jpg';
   if (n.includes('frying pan')) return 'https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?auto=format&fit=crop&w=600&q=80';
   if (n.includes('saucepan')) return 'https://images.unsplash.com/photo-1585837575652-267c041d77d4?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('biryani pot') || n.includes('biryani vessel')) return 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('biryani pot') || n.includes('biryani vessel') || n.includes('biryani')) return 'assets/biryani_deg.jpg';
   if (n.includes('kadai')) return 'assets/traditional_cookware.jpg';
   if (n.includes('rice cooker')) return 'assets/cooker.jpg';
 
@@ -676,7 +676,7 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('pooja plate') || (c.includes('pooja') && n.includes('plate'))) return 'assets/pooja_plate.jpg';
   if (n.includes('compartment plate')) return 'assets/compartment_plate.jpg';
   if (n.includes('fruit plate')) return 'assets/fruit_plate.jpg';
-  if (n.includes('meal plate')) return 'assets/meal_plate.jpg';
+  if (n.includes('meal plate')) return 'assets/stainless_steel_plate.jpg';
   if (n.includes('dinner set')) return 'assets/dinner_set.jpg';
   if (n.includes('plate') || n.includes('தட்டு') || n.includes('thali')) return 'assets/stainless_steel_plate.jpg';
   if (n.includes('baking tray')) return 'assets/baking_special.jpg';
@@ -698,7 +698,7 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('coffee filter') || n.includes('filter coffee') || n.includes('tea strainer') || n.includes('strainer')) return 'assets/tea_coffee.jpg';
   if (n.includes('davara') || n.includes('milk boiler') || n.includes('milk can')) return 'assets/tea_coffee.jpg';
   if (n.includes('kettle')) return 'assets/electric_kettle.jpg';
-  if (n.includes('flask') || n.includes('vacuum bottle')) return 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('flask') || n.includes('vacuum bottle')) return 'assets/flasks.jpg';
 
   // 7. Baking & Special Cooking
   if (n.includes('cake mould') || n.includes('puttu maker') || n.includes('appam cookware')) return 'assets/baking_special.jpg';
@@ -713,8 +713,9 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('pickle jar')) return 'assets/clay_pots.jpg';
 
   // 9. Hotel & Catering
-  if (n.includes('commercial cooker') || n.includes('bulk cooking') || n.includes('large biryani')) return 'assets/hotel_catering.jpg';
-  if (n.includes('large ladle')) return 'assets/hotel_catering.jpg';
+  if (n.includes('large biryani') || n.includes('biryani deg')) return 'assets/biryani_deg.jpg';
+  if (n.includes('commercial cooker') || n.includes('bulk cooking')) return 'assets/hotel_catering.jpg';
+  if (n.includes('large ladle')) return 'assets/ladles.jpg';
   if (n.includes('buffet warmer') || n.includes('catering')) return 'assets/hotel_catering.jpg';
 
   // 10. Pooja & Festival
@@ -725,12 +726,13 @@ function getProductImage(name, category, dept, customImg){
   // 11. Kitchen Accessories
   if (n.includes('knife') || n.includes('knives')) return 'https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=600&q=80';
   if (n.includes('cutting board')) return 'https://images.unsplash.com/photo-1589782182703-2aaa69037b5b?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('ladle') || n.includes('spatula') || n.includes('peeler') || n.includes('tong')) return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('ladle') || n.includes('spatula') || n.includes('peeler') || n.includes('tong')) return 'assets/ladles.jpg';
   if (n.includes('rack') || n.includes('dish drainer') || n.includes('sink accessory')) return 'assets/cleaning_utility.jpg';
 
   // 12. Kids & Travel
   if (n.includes('school lunch box') || n.includes('lunch bag') || n.includes('food jar')) return 'assets/kids_travel.jpg';
-  if (n.includes('cartoon bottle') || n.includes('travel flask')) return 'assets/kids_travel.jpg';
+  if (n.includes('travel flask')) return 'assets/flasks.jpg';
+  if (n.includes('cartoon bottle')) return 'assets/kids_travel.jpg';
 
   // 13. Wedding & Gifts & Vessels Crowd
   if (n.includes('vessel crowd') || n.includes('vessels crowd') || n.includes('crowd')) return 'assets/vessel_crowd.jpg';
@@ -742,8 +744,9 @@ function getProductImage(name, category, dept, customImg){
   if (n.includes('wooden bureau') || n.includes('wooden wardrobe') || n.includes('wooden biro') || n.includes('wardrobe') || n.includes('wooden broll') || n.includes('woonden') || n.includes('bureau') || n.includes('biro') || n.includes('broll')) return 'assets/wooden_bureau.jpg';
   if (n.includes('cot') || n.includes('bed') || n.includes('folding cot')) return 'assets/teak_cot.jpg';
   if (n.includes('sofa')) return 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('dining table')) return 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=600&q=80';
-  if (n.includes('dining chair') || n.includes('office chair') || n.includes('plastic chair')) return 'https://images.unsplash.com/photo-1580481077195-c3a821a58875?auto=format&fit=crop&w=600&q=80';
+  if (n.includes('dining table')) return 'assets/dining_tables.jpg';
+  if (n.includes('dining chair')) return 'assets/dining_chairs.jpg';
+  if (n.includes('office chair') || n.includes('plastic chair')) return 'https://images.unsplash.com/photo-1580481077195-c3a821a58875?auto=format&fit=crop&w=600&q=80';
   if (n.includes('tea table')) return 'https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&w=600&q=80';
   if (n.includes('tv stand')) return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80';
   if (n.includes('dressing table') || n.includes('dressing') || n.includes('vanity')) return 'assets/dressing_table.jpg';
